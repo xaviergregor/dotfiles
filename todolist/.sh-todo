@@ -1,0 +1,12 @@
+# Configure this as you wish and place it in ~/.sh-todo
+# Part of sh-todo:
+# https://github.com/asb/sh-todo
+
+: ${TODO_F:=}
+: ${TODONE_F:=}
+
+#: ${BEGIN_DONE:="\033[9m"}
+#: ${END_DONE:="\033[29m"}
+# Uncomment these if your terminal doesn't support strike-through
+#: ${BEGIN_DONE:="\033[30m"}
+#: ${END_DONE:="\033[30m"}
