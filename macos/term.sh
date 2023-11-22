@@ -60,6 +60,12 @@ brew install --cask discord
 echo "iTerm2"
 brew install --cask iterm2
 
+echo "Firefox"
+brew install --cask firefox
+
+echo "UTM"
+brew install --cask utm
+
 # Nettoyage
 
 brew cleanup
