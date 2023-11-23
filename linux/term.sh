@@ -1,9 +1,9 @@
 ## Commands installation
-sudo apt-get install exa
-sudo apt-get install grc
-sudo apt-get install bat
-sudo apt install git
-sudo apt install zsh
+sudo apt-get install exa -y
+sudo apt-get install grc -y
+sudo apt-get install bat -y
+sudo apt install git -y
+sudo apt install zsh -y
 
 ## Lien batcat bat
 ln -s /usr/bin/batcat /usr/bin/bat
