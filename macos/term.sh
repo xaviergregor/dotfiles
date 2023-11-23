@@ -118,8 +118,7 @@ brew install font-hack-nerd-font
 sudo npm install -g vtop
 
 #CHEAT
-go get -u github.com/cheat/cheat/cmd/cheat
-
+go install github.com/cheat/cheat/cmd/cheat@latest
 
 
 echo "---------------------------------------"
