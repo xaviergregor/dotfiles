@@ -4,7 +4,7 @@ OHMYZSH_INSTALL := https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tool
 BREW_INSTALL := https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 
 brew-install:
-	sh -c "$$( $(CURL) $(BREW_INSTALL) )"
+	bash -c "$$( $(CURL) $(BREW_INSTALL) )"
 
 brew-apps:
 	brew install --cask visual-studio-code
