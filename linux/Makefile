@@ -3,7 +3,7 @@ CURL := curl -fsSL
 OHMYZSH_INSTALL := https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 
 cmd:
-	sudo apt install -y exa grc bat git zsh htop
+	sudo apt install -y exa grc bat zsh htop
 	
 cheat:
 	go install github.com/cheat/cheat/cmd/cheat@latest
