@@ -1,3 +1,7 @@
+SHELL := /bin/bash
+CURL := curl -fsSL
+OHMYZSH_INSTALL := https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+
 cmd:
 	sudo apt install -y exa grc bat git zsh htop
 	
@@ -17,8 +21,8 @@ vim-plug:
 tmux-plug:
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-omz:
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+omz-install:
+	sh -c "$$( $(CURL) $(OHMYZSH_INSTALL) )"
 
 omz-plug:
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting
