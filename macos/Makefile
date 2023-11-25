@@ -1,5 +1,10 @@
+SHELL := /bin/bash
+CURL := curl -fsSL
+OHMYZSH_INSTALL := https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+BREW_INSTALL := https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+
 brew-install:
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	sh -c "$$( $(CURL) $(BREW_INSTALL) )"
 
 brew-apps:
 	brew install --cask visual-studio-code
@@ -56,7 +61,7 @@ install:
 	ln -snvf ${PWD}/zsh/.zshrc ~/.zshrc
 	ln -snvf ${PWD}/vim/.vimrc ~/.vimrc
 	ln -snvf ${PWD}/tmux/.tmux.conf ~/.tmux.conf
-	mkdir ~/work
+	mkdir -p ${HOME}/work/
 	chflags hidden ~/work
 	export GOPATH=$HOME/work
 
@@ -67,8 +72,8 @@ vim-plug:
 tmux-plug:
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-omz:
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+omz-install:
+	sh -c "$$( $(CURL) $(OHMYZSH_INSTALL) )"
 
 omz-plug:
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting
