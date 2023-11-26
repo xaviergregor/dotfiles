@@ -20,7 +20,6 @@ zsh-autosuggestions
 zsh-completions
 zsh-syntax-highlighting
 colored-man-pages
-thefuck
 )
 
 autoload -U compinit && compinit # reload completions for zsh-completions
@@ -63,5 +62,4 @@ alias cat='bat -pp'
 alias geoip='/opt/homebrew/bin/geoip.bash'
 
 [[ -s "/opt/homebrew/etc/grc.zsh" ]] && source /opt/homebrew/etc/grc.zsh
-eval $(thefuck --alias)
 test -e /Users/xavier/.iterm2_shell_integration.zsh && source /Users/xavier/.iterm2_shell_integration.zsh || true
