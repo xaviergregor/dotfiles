@@ -58,9 +58,9 @@ cheat:
 	go install github.com/cheat/cheat/cmd/cheat@latest
 
 install:
-	ln -snvf ${PWD}/zsh/.zshrc ~/.zshrc
-	ln -snvf ${PWD}/vim/.vimrc ~/.vimrc
-	ln -snvf ${PWD}/tmux/.tmux.conf ~/.tmux.conf
+	ln -snvf ${PWD}/.zshrc ~/.zshrc
+	ln -snvf ${PWD}/.vimrc ~/.vimrc
+	ln -snvf ${PWD}/.tmux.conf ~/.tmux.conf
 	mkdir -p ${HOME}/work/
 	chflags hidden ~/work
 	export GOPATH=$HOME/work
