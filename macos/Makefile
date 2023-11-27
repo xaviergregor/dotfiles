@@ -57,15 +57,6 @@ brew-cmd:
 cheat:
 	go install github.com/cheat/cheat/cmd/cheat@latest
 
-install:
-	ln -snvf ${PWD}/.zshrc ~/.zshrc
-	ln -snvf ${PWD}/.vimrc ~/.vimrc
-	ln -snvf ${PWD}/.tmux.conf ~/.tmux.conf
-	mkdir -p ${HOME}/work/
-	chflags hidden ~/work
-	export GOPATH=$HOME/work
-	ln -snvf ${PWD}/htoprc ~/.config/htop/htoprc
-
 vim-plug:
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -81,3 +72,12 @@ omz-plug:
 	git clone https://github.com/zsh-users/zsh-completions
 	git clone https://github.com/zsh-users/zsh-autosuggestions
 	mv zsh-* ~/.oh-my-zsh/plugins
+
+install:
+	ln -snvf ${PWD}/.zshrc ~/.zshrc
+	ln -snvf ${PWD}/.vimrc ~/.vimrc
+	ln -snvf ${PWD}/.tmux.conf ~/.tmux.conf
+	mkdir -p ${HOME}/work/
+	chflags hidden ~/work
+	export GOPATH=$HOME/work
+	ln -snvf ${PWD}/htoprc ~/.config/htop/htoprc
