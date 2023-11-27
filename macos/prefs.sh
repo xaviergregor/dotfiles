@@ -24,6 +24,9 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 # Pas d'organisation des bureaux en fonction des apps ouvertes
 defaults write com.apple.dock mru-spaces -bool false
 
+# Masquage automitique du Dock
+defaults write com.apple.Dock autohide -bool TRUE; killall Dock
+
 # Affichage du Dock plus rapide quand il est masqué
 defaults write com.apple.dock autohide-delay -float 0 && killall Dock
 
