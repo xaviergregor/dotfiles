@@ -64,6 +64,7 @@ install:
 	mkdir -p ${HOME}/work/
 	chflags hidden ~/work
 	export GOPATH=$HOME/work
+	ln -snvf ${PWD}/htoprc ~/.config/htop/htoprc
 
 vim-plug:
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
