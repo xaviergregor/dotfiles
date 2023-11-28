@@ -3,8 +3,18 @@ CURL := curl -fsSL
 OHMYZSH_INSTALL := https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 
 cmd:
-	sudo apt install -y exa grc bat zsh htop golang curl 
-	
+	sudo apt install -y grc bat zsh htop golang curl 
+
+eza:
+	sudo apt update
+	sudo apt install -y gpg
+	sudo mkdir -p /etc/apt/keyrings
+	wget -qO- https://raw.githubusercontent.com/eza-community/eza/main/deb.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gierens.gpg
+	echo "deb [signed-by=/etc/apt/keyrings/gierens.gpg] http://deb.gierens.de stable main" | sudo tee /etc/apt/sources.list.d/gierens.list
+	sudo chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
+	sudo apt update
+	sudo apt install -y eza
+
 cheat:
 	go install github.com/cheat/cheat/cmd/cheat@latest
 
