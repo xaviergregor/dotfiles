@@ -3,7 +3,7 @@ CURL := curl -fsSL
 OHMYZSH_INSTALL := https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 
 cmd:
-	sudo apt install -y exa grc bat zsh htop golang curl git
+	sudo apt install -y exa grc bat zsh htop golang curl 
 	
 cheat:
 	go install github.com/cheat/cheat/cmd/cheat@latest
@@ -28,5 +28,5 @@ install:
 	ln -snvf ${PWD}/.zshrc ~/.zshrc
 	ln -snvf ${PWD}/.vimrc ~/.vimrc
 	ln -snvf ${PWD}/.tmux.conf ~/.tmux.conf
-	ln -s /usr/bin/batcat /usr/bin/bat
+	sudo ln -s /usr/bin/batcat /usr/bin/bat
 	ln -snvf ${PWD}/htoprc ~/.config/htop/htoprc
