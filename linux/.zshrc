@@ -3,7 +3,17 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themesi
 precmd() { print "" }
-PROMPT="%B%F{cyan}%T%f%b  %B%F{10}%n%f%b%F{10}@%f%B%F{cyan}%m%f%b: %F{10}%~%f "
+
+# Check if the current user is root
+if [[ $UID -eq 0 ]]; then
+    # Set the prompt color to red for the root user
+
+    PROMPT="%B%F{cyan}%T%f%b  %B%F{red}%n%f%b%F{10}@%f%B%F{cyan}%m%f%b: %F{10}%~%f "
+else
+    # Set the prompt color to your desired color for non-root users
+
+    PROMPT="%B%F{cyan}%T%f%b  %B%F{10}%n%f%b%F{10}@%f%B%F{cyan}%m%f%b: %F{10}%~%f "
+fi
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
