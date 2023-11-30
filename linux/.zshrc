@@ -39,10 +39,11 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 export CLICOLORS=1
 
 # PATH custom
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
-#EDITOR ViM
+# EDITOR ViM
 
-#alias
+# alias
 if $(which eza > /dev/null 2>&1); then
   alias ls='eza --icons -lH --color=always'
   alias l='eza --icons -lH --color=always'
