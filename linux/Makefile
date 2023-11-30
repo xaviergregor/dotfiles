@@ -38,5 +38,5 @@ install:
 	ln -snvf ${PWD}/.zshrc ~/.zshrc
 	ln -snvf ${PWD}/.vimrc ~/.vimrc
 	ln -snvf ${PWD}/.tmux.conf ~/.tmux.conf
-	sudo ln -s /usr/bin/batcat /usr/bin/bat
 	ln -snvf ${PWD}/htoprc ~/.config/htop/htoprc
+	sudo ln -s /usr/bin/batcat /usr/bin/bat
