@@ -77,7 +77,7 @@ install:
 	ln -snvf ${PWD}/.zshrc ~/.zshrc
 	ln -snvf ${PWD}/.vimrc ~/.vimrc
 	ln -snvf ${PWD}/.tmux.conf ~/.tmux.conf
+	ln -snvf ${PWD}/htoprc ~/.config/htop/htoprc
 	mkdir -p ${HOME}/work/
 	chflags hidden ~/work
 	export GOPATH=$HOME/work
-	ln -snvf ${PWD}/htoprc ~/.config/htop/htoprc
