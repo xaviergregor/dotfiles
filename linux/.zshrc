@@ -39,7 +39,7 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 export CLICOLORS=1
 
 # PATH custom
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH="$HOME/go/bin:$PATH"
 
 # EDITOR ViM
 
