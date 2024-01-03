@@ -19,9 +19,8 @@ brew-apps:
 	brew install gotop
 	brew install --cask discord
 	brew install --cask iterm2
-	brew install --cask firefox
-	brew install --cask thunderbird
 	brew install --cask utm
+	brew install --cask handbrake
 
 brew-cmd:
 	brew install go
