@@ -15,4 +15,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'agude/vim-eldar'
 call plug#end()
+
+colorscheme eldar
+
