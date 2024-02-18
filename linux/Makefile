@@ -5,7 +5,6 @@ OHMYZSH_INSTALL := https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tool
 cmd:
 	sudo apt install -y grc bat zsh htop golang curl 
 
-eza:
 	sudo apt update
 	sudo apt install -y gpg
 	sudo mkdir -p /etc/apt/keyrings
@@ -15,26 +14,21 @@ eza:
 	sudo apt update
 	sudo apt install -y eza
 
-cheat:
 	go install github.com/cheat/cheat/cmd/cheat@latest
 
-vim-plug:
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-tmux-plug:
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-omz-install:
 	sh -c "$$( $(CURL) $(OHMYZSH_INSTALL) )"
 
-omz-plug:
+install:
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting
 	git clone https://github.com/zsh-users/zsh-completions
 	git clone https://github.com/zsh-users/zsh-autosuggestions
 	mv zsh-* ~/.oh-my-zsh/plugins
 
-install:
 	ln -snvf ${PWD}/.zshrc ~/.zshrc
 	ln -snvf ${PWD}/.vimrc ~/.vimrc
 	ln -snvf ${PWD}/.tmux.conf ~/.tmux.conf
