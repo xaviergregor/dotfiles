@@ -3,7 +3,7 @@ CURL := curl -fsSL
 OHMYZSH_INSTALL := https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 
 cmd:
-	sudo apt install -y grc bat zsh htop golang curl 
+	sudo apt install -y grc bat zsh htop golang curl vim
 
 	sudo apt update
 	sudo apt install -y gpg
