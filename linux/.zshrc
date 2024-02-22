@@ -8,7 +8,7 @@ precmd() { print "" }
 if [[ $UID -eq 0 ]]; then
     # Set the prompt color to red for the root user
 
-    PROMPT="%B%F{cyan}%T%f%b  %B%F{white}%n%f%b%F{10}@%f%B%F{cyan}%m%f%b: %F{10}%~%f "
+    PROMPT="%B%F{cyan}%T%f%b  %B%F{red}%n%f%b%F{10}@%f%B%F{cyan}%m%f%b: %F{10}%~%f "
 else
     # Set the prompt color to your desired color for non-root users
 
