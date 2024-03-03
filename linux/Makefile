@@ -30,23 +30,24 @@ install:
 	#git clone https://github.com/zsh-users/zsh-autosuggestions
 	#mv zsh-* ~/.oh-my-zsh/plugins
 
-	if [ ! -d ~/.oh-my-zsh/plugins/zsh-syntax-highlighting ]; then
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
-	else
-    echo "Le plugin zsh-syntax-highlighting est déjà présent dans ~/.oh-my-zsh/plugins."
-	fi
+    if [ ! -d ~/.oh-my-zsh/plugins/zsh-syntax-highlighting ]; then \
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/plugins/zsh-syntax-highlighting; \
+    else \
+        echo "Le plugin zsh-syntax-highlighting est déjà présent dans ~/.oh-my-zsh/plugins."; \
+    fi
 
-	if [ ! -d ~/.oh-my-zsh/plugins/zsh-completions ]; then
-    git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/plugins/zsh-completions
-	else
-    echo "Le plugin zsh-completions est déjà présent dans ~/.oh-my-zsh/plugins."
-	fi
+    if [ ! -d ~/.oh-my-zsh/plugins/zsh-completions ]; then \
+        git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/plugins/zsh-completions; \
+    else \
+        echo "Le plugin zsh-completions est déjà présent dans ~/.oh-my-zsh/plugins."; \
+    fi
 
-	if [ ! -d ~/.oh-my-zsh/plugins/zsh-autosuggestions ]; then
-    git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
-	else
-    echo "Le plugin zsh-szsh-autosuggestions est déjà présent dans ~/.oh-my-zsh/plugins."
-	fi
+    if [ ! -d ~/.oh-my-zsh/plugins/zsh-autosuggestions ]; then \
+        git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions; \
+    else \
+        echo "Le plugin zsh-autosuggestions est déjà présent dans ~/.oh-my-zsh/plugins."; \
+    fi
+
 
 
 	ln -snvf ${PWD}/.zshrc ~/.zshrc
