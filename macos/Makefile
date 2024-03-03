@@ -25,14 +25,18 @@ cmd:
 	brew install go
 	brew install fd
 	brew install duf
+	brew install procs
 	brew install btop
 	brew install golang
+	brew install dog
+	brew install gping
 	brew install arp-scan
 	brew install cmatrix
 	brew install grc
 	brew install htop
 	brew install vim
 	brew install nmap
+	brew install bandwhich
 	brew install tmux
 	brew install weechat
 	brew install wget
