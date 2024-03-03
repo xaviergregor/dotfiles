@@ -39,4 +39,4 @@ install:
 	mkdir -p ${HOME}/.config/htop/
 	ln -snvf ${PWD}/htoprc ~/.config/htop/htoprc
 	sudo ln -snvf /usr/bin/batcat /usr/bin/bat
-	vim +PluginInstall +qall
+	
