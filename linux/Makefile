@@ -25,31 +25,10 @@ cmd:
 	sh -c "$$( $(CURL) $(OHMYZSH_INSTALL) )"
 
 install:
-	#git clone https://github.com/zsh-users/zsh-syntax-highlighting
-	#git clone https://github.com/zsh-users/zsh-completions
-	#git clone https://github.com/zsh-users/zsh-autosuggestions
-	#mv zsh-* ~/.oh-my-zsh/plugins
-
-    if [ ! -d ~/.oh-my-zsh/plugins/zsh-syntax-highlighting ]; then \
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/plugins/zsh-syntax-highlighting; \
-    else \
-        echo "Le plugin zsh-syntax-highlighting est déjà présent dans ~/.oh-my-zsh/plugins."; \
-    fi
-
-    if [ ! -d ~/.oh-my-zsh/plugins/zsh-completions ]; then \
-        git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/plugins/zsh-completions; \
-    else \
-        echo "Le plugin zsh-completions est déjà présent dans ~/.oh-my-zsh/plugins."; \
-    fi
-
-    if [ ! -d ~/.oh-my-zsh/plugins/zsh-autosuggestions ]; then \
-        git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions; \
-    else \
-        echo "Le plugin zsh-autosuggestions est déjà présent dans ~/.oh-my-zsh/plugins."; \
-    fi
-
-
-
+	git clone --force https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/plugins
+	git clone --force https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/plugins
+	git clone --force https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins
+	
 	ln -snvf ${PWD}/.zshrc ~/.zshrc
 	ln -snvf ${PWD}/.vimrc ~/.vimrc
 	ln -snvf ${PWD}/.tmux.conf ~/.tmux.conf
