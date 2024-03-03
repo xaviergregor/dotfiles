@@ -25,9 +25,9 @@ cmd:
 	sh -c "$$( $(CURL) $(OHMYZSH_INSTALL) )"
 
 install:
-	git clone --force https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/plugins
-	git clone --force https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/plugins
-	git clone --force https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/plugins
+	git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/plugins
+	git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins
 	
 	ln -snvf ${PWD}/.zshrc ~/.zshrc
 	ln -snvf ${PWD}/.vimrc ~/.vimrc
