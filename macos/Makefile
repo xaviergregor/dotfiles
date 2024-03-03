@@ -56,24 +56,27 @@ cmd:
 	brew install --cask font-droid-sans-mono-nerd-font
 	brew install font-hack-nerd-font
 	
-	go install github.com/cheat/cheat/cmd/cheat@latest
-
+vim:
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+tmux:
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+shell:
 	sh -c "$$( $(CURL) $(OHMYZSH_INSTALL) )"
 
-install:
+zsh-plugins:
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting
 	git clone https://github.com/zsh-users/zsh-completions
 	git clone https://github.com/zsh-users/zsh-autosuggestions
 	mv zsh-* ~/.oh-my-zsh/plugins
 
+install:
 	ln -snvf ${PWD}/.zshrc ~/.zshrc
 	ln -snvf ${PWD}/.vimrc ~/.vimrc
 	ln -snvf ${PWD}/.tmux.conf ~/.tmux.conf
+	mkdir -p ${HOME}/.config/htop/
 	ln -snvf ${PWD}/htoprc ~/.config/htop/htoprc
 	mkdir -p ${HOME}/work/
 	chflags hidden ~/work
