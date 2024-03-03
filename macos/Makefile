@@ -21,6 +21,8 @@ cmd:
 	brew install --cask iterm2
 	brew install --cask utm
 	brew install --cask handbrake
+	brew install --cask proton-drive
+	brew install --cask protonvpn
 
 	brew install go
 	brew install fd
