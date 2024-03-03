@@ -15,22 +15,21 @@ cmd:
 	sudo apt update
 	sudo apt install -y eza
 
-	go install github.com/cheat/cheat/cmd/cheat@latest
-
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-
 	sh -c "$$( $(CURL) $(OHMYZSH_INSTALL) )"
 
-install:
+git: 
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/plugins
 	git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/plugins
 	git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins
-	
+
+install:
 	ln -snvf ${PWD}/.zshrc ~/.zshrc
 	ln -snvf ${PWD}/.vimrc ~/.vimrc
 	ln -snvf ${PWD}/.tmux.conf ~/.tmux.conf
+	mkdir -p ${HOME}/.config/htop/
 	ln -snvf ${PWD}/htoprc ~/.config/htop/htoprc
 	sudo ln -snvf /usr/bin/batcat /usr/bin/bat
