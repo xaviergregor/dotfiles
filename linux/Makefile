@@ -29,24 +29,24 @@ install:
 	#git clone https://github.com/zsh-users/zsh-completions
 	#git clone https://github.com/zsh-users/zsh-autosuggestions
 	#mv zsh-* ~/.oh-my-zsh/plugins
-	
+
 	if [ ! -d ~/.oh-my-zsh/plugins/zsh-syntax-highlighting ]; then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
-else
+	else
     echo "Le plugin zsh-syntax-highlighting est déjà présent dans ~/.oh-my-zsh/plugins."
-fi
+	fi
 
 	if [ ! -d ~/.oh-my-zsh/plugins/zsh-completions ]; then
     git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/plugins/zsh-completions
-else
+	else
     echo "Le plugin zsh-completions est déjà présent dans ~/.oh-my-zsh/plugins."
-fi
+	fi
 
 	if [ ! -d ~/.oh-my-zsh/plugins/zsh-autosuggestions ]; then
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
-else
+	else
     echo "Le plugin zsh-szsh-autosuggestions est déjà présent dans ~/.oh-my-zsh/plugins."
-fi
+	fi
 
 
 	ln -snvf ${PWD}/.zshrc ~/.zshrc
