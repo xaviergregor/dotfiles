@@ -19,7 +19,6 @@ cmd:
 vim: 
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	vim +PluginInstall +qall
 	
 tmux:
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm		
@@ -39,3 +38,4 @@ install:
 	mkdir -p ${HOME}/.config/htop/
 	ln -snvf ${PWD}/htoprc ~/.config/htop/htoprc
 	sudo ln -snvf /usr/bin/batcat /usr/bin/bat
+	vim +PluginInstall +qall
