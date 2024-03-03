@@ -15,13 +15,18 @@ cmd:
 	sudo apt update
 	sudo apt install -y eza
 
+	
+vim: 
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+tmux:
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm		
+
+shell: 
 	sh -c "$$( $(CURL) $(OHMYZSH_INSTALL) )"
 
-git: 
-	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+zsh-plugins: 
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/plugins
 	git clone https://github.com/zsh-users/zsh-completions ~/.oh-my-zsh/plugins
 	git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins
