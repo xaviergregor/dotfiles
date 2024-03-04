@@ -25,7 +25,6 @@ cmd:
 	brew install --cask stats
 	brew install --cask coteditor
 	brew install --cask hiddenbar
-	brew install --cask anybar
 
 	brew install go
 	brew install fd
