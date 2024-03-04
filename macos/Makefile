@@ -22,12 +22,15 @@ cmd:
 	brew install --cask firefox
 	brew install --cask proton-drive
 	brew install --cask protonvpn
+	brew install --cask stats
+	brew install --cask coteditor
 
 	brew install go
 	brew install fd
 	brew install duf
 	brew install procs
 	brew install btop
+	brew install ranger
 	brew install golang
 	brew install dog
 	brew install gping
@@ -49,6 +52,7 @@ cmd:
 	brew install pkg-config
 	brew install tldr
 	brew install shellcheck
+	brew install m-cli
 	brew install eza
 	brew install bat
 	brew install wego
