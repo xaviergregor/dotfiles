@@ -53,7 +53,6 @@ cmd:
 	brew install pkg-config
 	brew install tldr
 	brew install shellcheck
-	brew install m-cli
 	brew install eza
 	brew install bat
 	brew install wego
