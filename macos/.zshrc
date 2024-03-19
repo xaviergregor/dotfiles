@@ -52,9 +52,6 @@ else
 fi
 
 alias c='clear'
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
 alias ansiweather='ansiweather -l "Mauguio,FR" -H true -s true -d true'
 alias cheat='cheat -c'
 alias grep='grep --color=auto'
