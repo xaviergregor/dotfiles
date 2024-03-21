@@ -40,9 +40,9 @@ export EDITOR="/usr/local/bin/vim"
 
 #alias
 if $(which eza > /dev/null 2>&1); then
-  alias ls='eza --icons -lH --color=always'
-  alias l='eza --icons -lH --color=always'
-  alias ll='eza --icons -lH -a --color=always'
+  alias ls='eza --icons -lgH --color=always'
+  alias l='eza --icons -lgH --color=always'
+  alias ll='eza --icons -lgH -a --color=always'
   alias l.='eza -d --icons .* --color=always'
 else
 	alias ll='ls -hlF --color=auto'
