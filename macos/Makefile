@@ -19,12 +19,9 @@ cmd:
 	brew install gotop
 	brew install --cask discord
 	brew install --cask iterm2
-	brew install --cask firefox
-	brew install --cask proton-drive
 	brew install --cask protonvpn
 	brew install --cask stats
 	brew install --cask coteditor
-	brew install --cask hiddenbar
 
 	brew install go
 	brew install fd
