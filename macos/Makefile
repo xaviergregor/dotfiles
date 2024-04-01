@@ -21,7 +21,6 @@ cmd:
 	brew install --cask iterm2
 	brew install --cask protonvpn
 	brew install --cask stats
-	brew install --cask coteditor
 
 	brew install go
 	brew install fd
