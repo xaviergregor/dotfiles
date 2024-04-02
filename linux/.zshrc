@@ -40,6 +40,7 @@ export CLICOLORS=1
 
 # PATH custom
 export PATH="$HOME/go/bin:$PATH"
+export PATH="/sbin:$PATH"
 
 # EDITOR ViM
 
