@@ -19,7 +19,6 @@ cmd:
 	brew install gotop
 	brew install --cask discord
 	brew install --cask iterm2
-	brew install --cask protonvpn
 	brew install --cask stats
 
 	brew install go
