@@ -58,5 +58,5 @@ alias grep='grep --color=auto'
 alias cat='bat -pp'
 alias geoip='/opt/homebrew/bin/geoip.bash'
 
-[[ -s "/opt/homebrew/etc/grc.zsh" ]] && source /opt/homebrew/etc/grc.zsh
+[[ -s "/usr/local/etc/grc.zsh" ]] && source /usr/local/etc/grc.zsh
 test -e /Users/xavier/.iterm2_shell_integration.zsh && source /Users/xavier/.iterm2_shell_integration.zsh || true
