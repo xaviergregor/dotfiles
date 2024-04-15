@@ -58,22 +58,5 @@ alias grep='grep --color=auto'
 alias cat='bat -pp'
 alias geoip='/opt/homebrew/bin/geoip.bash'
 
-# alias SSH
-alias cyberlab='ssh 100.127.128.43'
-alias dhcp='ssh 100.94.187.77'
-alias docker='ssh 100.77.157.120'
-alias homebridge='100.70.251.40'
-alias mqtt='100.97.126.63'
-alias nas-xavier='100.73.77.29'
-alias partage='ssh 100.76.3.94'
-alias pihole='ssh 100.114.146.127'
-alias pivpn='ssh 100.97.233.35'
-alias pve='ssh root@100.84.18.36'
-alias smbshare='ssh 100.82.84.14'
-alias ubuntu-oracle='ssh 100.96.164.127'
-alias unify='ssh 100.106.4.18'
-alias xmini='ssh 100.99.100.87'
-alias zerocool='ssh 100.96.227.99'
-
 [[ -s "/opt/homebrew/etc/grc.zsh" ]] && source /opt/homebrew/etc/grc.zsh
 test -e /Users/xavier/.iterm2_shell_integration.zsh && source /Users/xavier/.iterm2_shell_integration.zsh || true
