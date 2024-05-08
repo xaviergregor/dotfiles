@@ -3,7 +3,7 @@ CURL := curl -fsSL
 OHMYZSH_INSTALL := https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 
 cmd:
-	sudo apt install -y grc bat zsh htop golang curl vim neovim gcc g++ ranger
+	sudo apt install -y grc bat zsh htop golang curl vim gcc g++ ranger
 
 	sudo apt update
 	sudo apt install -y gpg
@@ -24,6 +24,14 @@ tmux:
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm		
 
 nvim:
+	curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+	chmod u+x nvim.appimage
+	./nvim.appimage --appimage-extract
+	./squashfs-root/AppRun --version
+
+	sudo mv squashfs-root /
+	sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
+
 	git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 
 shell: 
