@@ -35,6 +35,7 @@ cmd:
 	brew install grc
 	brew install htop
 	brew install vim
+	brew install neovim
 	brew install nmap
 	brew install bandwhich
 	brew install tmux

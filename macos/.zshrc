@@ -15,6 +15,7 @@ brew
 git
 git-prompt
 macos 
+grc
 web-search
 zsh-autosuggestions
 zsh-completions
@@ -58,5 +59,4 @@ alias grep='grep --color=auto'
 alias cat='bat -pp'
 alias geoip='/opt/homebrew/bin/geoip.bash'
 
-[[ -s "/opt/homebrew/etc/grc.zsh" ]] && source /opt/homebrew/etc/grc.zsh
 test -e /Users/xavier/.iterm2_shell_integration.zsh && source /Users/xavier/.iterm2_shell_integration.zsh || true

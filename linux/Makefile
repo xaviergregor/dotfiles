@@ -3,7 +3,7 @@ CURL := curl -fsSL
 OHMYZSH_INSTALL := https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 
 cmd:
-	sudo apt install -y grc bat zsh htop golang curl vim
+	sudo apt install -y grc bat zsh htop golang curl vim neovim gcc g++ ranger
 
 	sudo apt update
 	sudo apt install -y gpg
@@ -22,6 +22,9 @@ vim:
 	
 tmux:
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm		
+
+nvim:
+	git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 
 shell: 
 	sh -c "$$( $(CURL) $(OHMYZSH_INSTALL) )"

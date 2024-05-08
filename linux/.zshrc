@@ -24,6 +24,7 @@ plugins=(
 git
 git-prompt
 web-search
+grc
 zsh-autosuggestions
 zsh-completions
 zsh-syntax-highlighting
@@ -43,7 +44,7 @@ export PATH="$HOME/go/bin:$PATH"
 export PATH="/sbin:$PATH"
 
 # EDITOR ViM
-
+export EDITOR="nvim"
 # alias
 if $(which eza > /dev/null 2>&1); then
   alias ls='eza --icons -lgH --color=always'
@@ -60,8 +61,4 @@ fi
 alias c='clear'
 alias grep='grep --color=auto'
 alias cat='bat -pp'
-alias ping='grc ping'
-alias ip='grc ip'
-
-[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
 
