@@ -58,6 +58,7 @@ else
 	alias l.='ls -d .* --color=auto'
 fi
 
+alias vim='nvim'
 alias c='clear'
 alias grep='grep --color=auto'
 alias cat='bat -pp'
