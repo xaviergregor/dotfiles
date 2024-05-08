@@ -37,7 +37,7 @@ export PATH="/opt/homebrew/Cellar/john-jumbo/1.9.0_1/share/john/:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 #EDITOR ViM
-export EDITOR="/usr/local/bin/vim"
+export EDITOR="nvim"
 
 #alias
 if $(which eza > /dev/null 2>&1); then
@@ -52,6 +52,7 @@ else
 	alias l.='ls -d .* --color=auto'
 fi
 
+alias vim="nvim"
 alias c='clear'
 alias ansiweather='ansiweather -l "Mauguio,FR" -H true -s true -d true'
 alias cheat='cheat -c'
