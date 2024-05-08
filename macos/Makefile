@@ -64,6 +64,9 @@ vim:
 tmux:
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+nvim:
+	git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
+
 shell:
 	sh -c "$$( $(CURL) $(OHMYZSH_INSTALL) )"
 
