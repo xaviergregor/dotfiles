@@ -46,7 +46,7 @@ export PATH="$HOME/go/bin:$PATH"
 export PATH="/sbin:$PATH"
 
 # EDITOR ViM
-export EDITOR="nvim"
+export EDITOR="vim"
 # alias
 if $(which eza > /dev/null 2>&1); then
   alias ls='eza --icons -lgH --color=always'
@@ -60,7 +60,6 @@ else
 	alias l.='ls -d .* --color=auto'
 fi
 
-alias vim='nvim'
 alias c='clear'
 alias grep='grep --color=auto'
 alias cat='bat -pp'
