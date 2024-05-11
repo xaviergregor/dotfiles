@@ -53,11 +53,14 @@ else
 	alias l.='ls -d .* --color=auto'
 fi
 
+if $(which bat > /dev/null 2>&1); then
+  alias cat='bat -pp'
+fi
+
 alias c='clear'
 alias ansiweather='ansiweather -l "Mauguio,FR" -H true -s true -d true'
 alias cheat='cheat -c'
 alias grep='grep --color=auto'
-alias cat='bat -pp'
 alias geoip='/opt/homebrew/bin/geoip.bash'
 
 test -e /Users/xavier/.iterm2_shell_integration.zsh && source /Users/xavier/.iterm2_shell_integration.zsh || true
