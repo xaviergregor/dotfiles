@@ -5,17 +5,17 @@ export ZSH="$HOME/.oh-my-zsh"
 precmd() { print "" }
 
 # Check if the current user is root
-if [[ $UID -eq 0 ]]; then
+#if [[ $UID -eq 0 ]]; then
     # Set the prompt color to red for the root user
 
-    #PROMPT="%B%F{cyan}%T%f%b  %B%F{red}%n%f%b%F{10}@%f%B%F{cyan}%m%f%b: %F{10}%~%f "
-    PROMPT="%B%F{cyan}%T%f%b 💀 %B%F{green}%m%f%b %F{cyan}→%f %B%F{green}%~%f%b "
-else
+    #PROMPT="%B%F{cyan}%T%f%b 💀 %B%F{green}%m%f%b %F{cyan}→%f %B%F{green}%~%f%b "
+#else
     # Set the prompt color to your desired color for non-root users
 
-    #PROMPT="%B%F{cyan}%T%f%b  %B%F{10}%n%f%b%F{10}@%f%B%F{cyan}%m%f%b: %F{10}%~%f "
-    PROMPT="%B%F{cyan}%T%f%b 🦕 %B%F{green}%m%f%b %F{cyan}→%f %B%F{green}%~%f%b "
-fi
+    #PROMPT="%B%F{cyan}%T%f%b 🦕 %B%F{green}%m%f%b %F{cyan}→%f %B%F{green}%~%f%b "
+#fi
+
+ZSH_THEME="dracula"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
