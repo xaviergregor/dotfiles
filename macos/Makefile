@@ -71,6 +71,8 @@ zsh-plugins:
 	git clone https://github.com/zsh-users/zsh-completions
 	git clone https://github.com/zsh-users/zsh-autosuggestions
 	mv zsh-* ~/.oh-my-zsh/plugins
+
+zsh-theme:
 	mv dracula.zsh-theme ~/.oh-my-zsh/themes
 
 install:
