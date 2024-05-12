@@ -32,7 +32,7 @@ zsh-plugins:
 	git clone https://github.com/zsh-users/zsh-autosuggestions
 	mv zsh-* ~/.oh-my-zsh/plugins
 
-zhh-theme:
+zsh-theme:
 	mv dracula.zsh-theme ~/.oh-my-zsh/themes
 
 install:
