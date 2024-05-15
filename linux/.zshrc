@@ -10,7 +10,7 @@ if [[ $UID -eq 0 ]]; then
 
     PROMPT="%B%F{cyan}%T%f%b 💀 %B%F{green}%m%f%b %F{cyan}→%f %B%F{green}%~%f%b "
 else
-     Set the prompt color to your desired color for non-root users
+    # Set the prompt color to your desired color for non-root users
 
     PROMPT="%B%F{cyan}%T%f%b 🦕 %B%F{green}%m%f%b %F{cyan}→%f %B%F{green}%~%f%b "
 fi
