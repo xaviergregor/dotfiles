@@ -3,7 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themesi
 precmd() { print "" }
-PROMPT="%B%F{cyan}%T%f%b %B%F{cyan}%n%f%b %B%F{green}@%f%b %B%F{green}%m%f%b %B%F{cyan}→%f%b %B%F{green}%~%f%b "
+PROMPT="%B%F{cyan}%T%f%b %B%F{green}%m%f%b %B%F{cyan}→%f%b %B%F{green}%~%f%b "
 
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
