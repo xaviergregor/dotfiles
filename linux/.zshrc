@@ -8,11 +8,12 @@ precmd() { print "" }
 if [[ $UID -eq 0 ]]; then
     # Set the prompt color to red for the root user
 
-    PROMPT="%B%F{cyan}%T%f%b 💀 %B%F{green}%m%f%b %F{cyan}→%f %B%F{green}%~%f%b "
-else
+    PROMPT="%B%F{cyan}%T%f%b %B%F{red}%n%f%b %B%F{green}@%f%b %B%F{green}%m%f%b %B%F{cyan}→%f%b %B%F{green}%~%f%b "
+  else
+
     # Set the prompt color to your desired color for non-root users
 
-    PROMPT="%B%F{cyan}%T%f%b 🦕 %B%F{green}%m%f%b %F{cyan}→%f %B%F{green}%~%f%b "
+    PROMPT="%B%F{cyan}%T%f%b %B%F{cyan}%n%f%b %B%F{green}@%f%b %B%F{green}%m%f%b %B%F{cyan}→%f%b %B%F{green}%~%f%b " 
 fi
 
 # Which plugins would you like to load?

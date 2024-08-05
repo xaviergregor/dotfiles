@@ -1,6 +1,6 @@
 syntax on
 set background=dark
-set termguicolors
+"set termguicolors
 set mouse=a
 set ignorecase
 set tabstop=2
