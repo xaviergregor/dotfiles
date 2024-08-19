@@ -1,6 +1,5 @@
 # Taps
 tap "cjbassi/gotop"
-tap "homebrew/cask-fonts"
 
 # Commandes
 brew "go"
@@ -10,7 +9,6 @@ brew "procs"
 brew "btop"
 brew "ranger"
 brew "golang"
-brew "dog"
 brew "gping"
 brew "arp-scan"
 brew "cmatrix"
