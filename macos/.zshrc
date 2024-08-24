@@ -63,3 +63,6 @@ alias grep='grep --color=auto'
 alias geoip='/opt/homebrew/bin/geoip.bash'
 
 test -e /Users/xavier/.iterm2_shell_integration.zsh && source /Users/xavier/.iterm2_shell_integration.zsh || true
+
+# Created by `pipx` on 2024-08-19 13:05:35
+export PATH="$PATH:/Users/xavier/.local/bin"

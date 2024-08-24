@@ -39,9 +39,9 @@
 			<key>license</key>
 			<string>ship-quip-ouch-grab-4215-7</string>
 			<key>signature</key>
-			<string>MIGHAkIAvaY1nINenCfwF+XYcC/fOSB+pna6TVYKm2G/m7ROm5VBGQ9uz9jTCvjSviMVpMu8VccTZofKx8E0bE9x58P8N/sCQVRUBtj7zasKj4mlSLw+ztUAQS7cT5ZTJ8/ESp0mcVb997qJ/QturiIEJEQ2HmTH9twO3z89jU8huoHiPIJwOQjv</string>
+			<string>MIGIAkIA9xrSTzBya0AcaN7JfjFAW8ljtIODjykdIBdS6bFEaXcXAt47f5NtP+C4hVJ16qcgInAUAWdnRES68BtOwg92RgQCQgCur5QVhn9WWt348umT6Or345sPYBagWQrTNMT/yG+osQGUs/PES6F87vd3pOuC350bWmQE6W5hFrprU6JOFvlGrg==</string>
 			<key>time</key>
-			<string>1722529182</string>
+			<string>1724065097</string>
 		</dict>
 	</dict>
 	<key>Menu</key>
@@ -49,7 +49,9 @@
 		<key>Theme</key>
 		<dict>
 			<key>Dark</key>
-			<string>system</string>
+			<string>dark</string>
+			<key>Light</key>
+			<string>cyan</string>
 		</dict>
 	</dict>
 	<key>Menubar</key>
@@ -60,7 +62,10 @@
 			<integer>0</integer>
 		</dict>
 		<key>Theme</key>
-		<dict/>
+		<dict>
+			<key>Dark</key>
+			<string>red</string>
+		</dict>
 	</dict>
 	<key>Migration</key>
 	<dict>
@@ -230,6 +235,29 @@
 				<dict>
 					<key>Menubar</key>
 					<dict>
+						<key>Batteries</key>
+						<array>
+							<dict>
+								<key>internal</key>
+								<true/>
+								<key>key</key>
+								<string>F8Y201303KYQ1LTA9</string>
+								<key>name</key>
+								<string>Internal Battery</string>
+							</dict>
+							<dict>
+								<key>key</key>
+								<string>2c-33-61-e9-9f-77</string>
+								<key>name</key>
+								<string>Magic Keyboard</string>
+							</dict>
+							<dict>
+								<key>key</key>
+								<string>df-d4-c0-1e-bf-de</string>
+								<key>name</key>
+								<string>MX Master 3 Mac</string>
+							</dict>
+						</array>
 						<key>DetailedState</key>
 						<integer>0</integer>
 						<key>Enabled</key>
@@ -489,12 +517,12 @@
 		<key>Build</key>
 		<dict>
 			<key>Last</key>
-			<real>2189</real>
+			<real>2221</real>
 		</dict>
 		<key>Version</key>
 		<dict>
 			<key>Last</key>
-			<real>7</real>
+			<real>7.0100002288818359</real>
 		</dict>
 	</dict>
 	<key>UpdateFrequency</key>
