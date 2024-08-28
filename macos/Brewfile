@@ -1,5 +1,4 @@
 # Taps
-tap "cjbassi/gotop"
 
 # Commandes
 brew "go"
