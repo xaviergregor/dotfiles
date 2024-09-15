@@ -31,9 +31,6 @@ source $ZSH/oh-my-zsh.sh
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 
 # PATH custom
-export GOPATH=$HOME/work
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-export PATH="/opt/homebrew/Cellar/john-jumbo/1.9.0_1/share/john/:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
 #EDITOR ViM
