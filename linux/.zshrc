@@ -66,3 +66,6 @@ fi
 
 alias c='clear'
 alias grep='grep --color=auto'
+
+#Keychain ssh
+eval $(keychain --eval --agents ssh id_rsa)
