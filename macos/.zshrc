@@ -16,6 +16,7 @@ git
 git-prompt
 macos 
 grc
+sudo
 web-search
 zsh-autosuggestions
 zsh-completions
