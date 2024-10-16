@@ -26,6 +26,7 @@ git
 git-prompt
 web-search
 grc
+sudo
 zsh-autosuggestions
 zsh-completions
 zsh-syntax-highlighting
