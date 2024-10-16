@@ -20,7 +20,7 @@ zsh-plugins:
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting
 	git clone https://github.com/zsh-users/zsh-completions
 	git clone https://github.com/zsh-users/zsh-autosuggestions
-	mv zsh-* ~/.oh-my-zsh/plugins
+	mv zsh-* ~/.oh-my-zsh/custom/plugins
 
 install:
 	ln -snvf ${PWD}/.zshrc ~/.zshrc
