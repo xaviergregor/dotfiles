@@ -1,4 +1,5 @@
 # Taps
+tap "teamookla/speedtest"
 
 # Commandes
 brew "go"
@@ -32,6 +33,7 @@ brew "bat"
 brew "wego"
 brew "iproute2mac"
 brew "fastfetch"
+brew "speedtest"
 
 # Programmes
 cask "adapter"
