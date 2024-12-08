@@ -34,6 +34,7 @@ brew "wego"
 brew "iproute2mac"
 brew "fastfetch"
 brew "speedtest"
+brew "m-cli"
 
 # Programmes
 cask "adapter"
