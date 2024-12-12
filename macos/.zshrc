@@ -67,5 +67,3 @@ test -e /Users/xavier/.iterm2_shell_integration.zsh && source /Users/xavier/.ite
 
 # Created by `pipx` on 2024-08-19 13:05:35
 export PATH="$PATH:/Users/xavier/.local/bin"
-
-source /Users/xavier/.config/broot/launcher/bash/br
