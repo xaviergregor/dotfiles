@@ -59,9 +59,9 @@ alias ansiweather='ansiweather -l "Mauguio,FR" -H true -s true -d true'
 alias cheat='cheat -c'
 alias grep='grep --color=auto'
 alias geoip='/opt/homebrew/bin/geoip.bash'
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
+#alias rm='rm -i'
+#alias cp='cp -i'
+#alias mv='mv -i'
 
 test -e /Users/xavier/.iterm2_shell_integration.zsh && source /Users/xavier/.iterm2_shell_integration.zsh || true
 
