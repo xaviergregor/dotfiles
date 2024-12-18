@@ -51,6 +51,9 @@ defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
+# Desactiver adresse Wi-Fi privee
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.airport.preferences.plist PrivateMACAddressModeSystemSetting -int 1
+
 # Message a la fenetre de login
 sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText -string "Xavier Gregor -- xavier@gregor.fr -- 06.32.08.44.86"
 
