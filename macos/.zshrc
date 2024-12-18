@@ -62,6 +62,7 @@ alias geoip='/opt/homebrew/bin/geoip.bash'
 #alias rm='rm -i'
 #alias cp='cp -i'
 #alias mv='mv -i'
+alias dot='cd $HOME/dotfiles'
 
 test -e /Users/xavier/.iterm2_shell_integration.zsh && source /Users/xavier/.iterm2_shell_integration.zsh || true
 
