@@ -15,7 +15,7 @@ if [[ $UID -eq 0 ]]; then
 
     PROMPT="%B%F{cyan}%T%f%b %B%F{green}%m%f%b %B%F{cyan}→%f%b %B%F{green}%~%f%b "
 fi
-ZSH_THEME="agnoster"
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
