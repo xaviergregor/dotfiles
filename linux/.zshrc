@@ -70,6 +70,3 @@ alias grep='grep --color=auto'
 #alias rm='rm -i'
 #alias cp='cp -i'
 #alias mv='mv -i'
-
-#Keychain ssh
-eval $(keychain --eval --agents ssh id_rsa)
