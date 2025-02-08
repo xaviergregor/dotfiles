@@ -1,6 +1,5 @@
 #DOTFILES
 
-==========
-My configuration files or 🦖 macOS et 🦕 Debian
+My configuration files for 💻 macOS et 🐧 Linux
 
 Use make
