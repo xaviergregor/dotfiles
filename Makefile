@@ -36,14 +36,24 @@ zsh-plugins:
 	git clone https://github.com/zsh-users/zsh-autosuggestions
 	mv zsh-* ~/.oh-my-zsh/custom/plugins
 
-install:
-	ln -snvf ${PWD}/.zshrc ~/.zshrc
+mac:
+	ln -snvf ${PWD}/.zshrc_mac ~/.zshrc
 	ln -snvf ${PWD}/.vimrc ~/.vimrc
 	ln -snvf ${PWD}/.tmux.conf ~/.tmux.conf
 	mkdir -p ${HOME}/.config/htop/
-	ln -snvf ${PWD}/htoprc ~/.config/htop/htoprc
+	ln -snvf ${PWD}/config/htop/htoprc ~/.config/htop/htoprc
 	mkdir -p ${HOME}/.config/ghostty/
-	ln -snvf ${PWD}/config ~/.config/ghostty/config
+	ln -snvf ${PWD}/config/ghostty/confi ~/.config/ghostty/config
 	mkdir -p ${HOME}/work/
 	chflags hidden ~/work
 	export GOPATH=$HOME/work
+	
+linux:
+	ln -snvf ${PWD}/.zshrc_linux ~/.zshrc
+	ln -snvf ${PWD}/.vimrc ~/.vimrc
+	ln -snvf ${PWD}/.tmux.conf ~/.tmux.conf
+	mkdir -p ${HOME}/.config/htop/
+	ln -snvf ${PWD}/config/htop/htoprc ~/.config/htop/htoprc
+	mkdir -p ${HOME}/.config/ghostty/
+	ln -snvf ${PWD}/config/ghostty/confi ~/.config/ghostty/config
+
