@@ -55,5 +55,5 @@ linux:
 	mkdir -p ${HOME}/.config/htop/
 	ln -snvf ${PWD}/config/htop/htoprc ~/.config/htop/htoprc
 	mkdir -p ${HOME}/.config/ghostty/
-	ln -snvf ${PWD}/config/ghostty/confi ~/.config/ghostty/config
+	ln -snvf ${PWD}/config/ghostty/config ~/.config/ghostty/config
 
