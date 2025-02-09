@@ -30,8 +30,8 @@ font-thicken = true
 
 #General settings
 macos-titlebar-style = tabs
-#background-opacity = 0.80
-#background-blur-radius = 75
+background-opacity = 0.80
+background-blur-radius = 75
 copy-on-select = clipboard
 term = xterm-256color
 quit-after-last-window-closed = false
