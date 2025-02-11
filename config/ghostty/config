@@ -15,7 +15,7 @@ palette = 12=#8daed4
 palette = 13=#b695b5
 palette = 14=#73e3e6
 palette = 15=#f1f1f0
-background = #000000
+background = #212121
 foreground = #ffffff
 cursor-color = #ffffff
 cursor-text = #000000
