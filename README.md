@@ -1,5 +1,5 @@
 #DOTFILES
 
-My configuration files for 💻 macOS et 🐧 Linux
+My configuration files for 🍎 macOS et 🐧 Linux
 
 Use make
