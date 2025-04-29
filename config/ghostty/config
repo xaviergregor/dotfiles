@@ -23,7 +23,11 @@
 #selection-foreground = #000000
 
 #Theme
-theme = Pro
+#theme = Brogrammer
+#theme = ENCOM
+theme = Homebrew
+#theme = Pro
+#theme = VibrantInk
 
 #Fonts settings
 bold-is-bright = true
