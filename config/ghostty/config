@@ -29,6 +29,8 @@ theme = Homebrew
 #theme = Pro
 #theme = VibrantInk
 
+title = 👻
+
 #Fonts settings
 bold-is-bright = true
 font-size = 11
