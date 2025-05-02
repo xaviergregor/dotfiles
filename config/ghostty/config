@@ -3,10 +3,10 @@
 #Theme
 #theme = Brogrammer
 #theme = ENCOM
-theme = Homebrew
+#theme = Homebrew
 #theme = Pro
 #theme = VibrantInk
-
+background = #212121
 title = 🦊
 
 #Fonts settings
@@ -21,7 +21,5 @@ copy-on-select = clipboard
 quit-after-last-window-closed = false
 mouse-hide-while-typing = true
 
-#Quick Terminal
+#Keybinds
 keybind = global:alt+space=toggle_quick_terminal
-
-
