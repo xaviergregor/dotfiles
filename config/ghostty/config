@@ -24,6 +24,7 @@ background-blur-radius = 75
 copy-on-select = clipboard
 quit-after-last-window-closed = false
 mouse-hide-while-typing = true
+term = xterm-256color
 
 #Keybinds
 keybind = global:alt+space=toggle_quick_terminal
