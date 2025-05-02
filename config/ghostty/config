@@ -1,26 +1,4 @@
-#Colors settings
-#palette = 0=#000000
-#palette = 1=#c6351c
-#palette = 2=#6fa531
-#palette = 3=#caaf38
-#palette = 4=#4f79af
-#palette = 5=#83678b
-#palette = 6=#46a4a9
-#palette = 7=#dcded9
-#palette = 8=#686a66
-#palette = 9=#e25140
-#palette = 10=#a9E15e
-#palette = 11=#faeb77
-#palette = 12=#8daed4
-#palette = 13=#b695b5
-#palette = 14=#73e3e6
-#palette = 15=#f1f1f0
-#background = #212121
-#foreground = #ffffff
-#cursor-color = #ffffff
-#cursor-text = #000000
-#selection-background = #c7ddfc
-#selection-foreground = #000000
+# Custom Ghostty Configuration by X4VI3RG
 
 #Theme
 #theme = Brogrammer
@@ -29,22 +7,21 @@ theme = Homebrew
 #theme = Pro
 #theme = VibrantInk
 
-title = 👻
+title = 🦊
 
 #Fonts settings
 bold-is-bright = true
 font-size = 11
-#font-family = "JetBrains Mono"
-#font-thicken = true
 
 #General settings
 macos-titlebar-style = tabs
 background-opacity = 0.80
 background-blur-radius = 75
 copy-on-select = clipboard
-term = xterm-256color
 quit-after-last-window-closed = false
 mouse-hide-while-typing = true
 
 #Quick Terminal
 keybind = global:alt+space=toggle_quick_terminal
+
+
