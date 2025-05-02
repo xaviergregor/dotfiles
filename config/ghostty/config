@@ -25,6 +25,8 @@ copy-on-select = clipboard
 quit-after-last-window-closed = false
 mouse-hide-while-typing = true
 term = xterm-256color
+window-height = 50
+window-width = 170
 
 #Keybinds
 keybind = global:alt+space=toggle_quick_terminal
