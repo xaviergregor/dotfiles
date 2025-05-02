@@ -1,12 +1,16 @@
 # Custom Ghostty Configuration by X4VI3RG
 
 #Theme
+#theme = 0x96f
 #theme = Brogrammer
 #theme = ENCOM
 #theme = Homebrew
 #theme = Pro
 #theme = VibrantInk
+theme = Wez
+
 background = #212121
+
 title = 🦊
 
 #Fonts settings
