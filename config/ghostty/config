@@ -8,16 +8,16 @@
 #theme = Pro
 #theme = VibrantInk
 #theme = Wez
-
 background = #212121
-
 title = 🦊
 
 #Fonts settings
+
 bold-is-bright = true
 font-size = 11
 
 #General settings
+
 macos-titlebar-style = tabs
 background-opacity = 0.80
 background-blur-radius = 75
@@ -29,4 +29,5 @@ window-height = 50
 window-width = 170
 
 #Keybinds
+
 keybind = global:alt+space=toggle_quick_terminal
