@@ -1,0 +1,4 @@
+# App shortcuts
+alt - g : open -a 'Ghostty'
+alt - f : open -a 'Firefox'
+alt - p : open -a 'System Settings'
