@@ -1,5 +1,6 @@
 # Taps
 tap "teamookla/speedtest"
+tap "koekeishiya/formulae"
 
 # Commandes
 brew "go"
@@ -36,6 +37,7 @@ brew "iproute2mac"
 brew "fastfetch"
 brew "speedtest"
 brew "m-cli"
+brew "skhd"
 
 # Programmes
 cask "adapter"
