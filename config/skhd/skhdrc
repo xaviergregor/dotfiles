@@ -1,4 +1,7 @@
 # App shortcuts
 alt - g : open -a 'Ghostty'
 alt - f : open -a 'Firefox'
-alt - s : open -a 'System Settings'
+alt - p : open -a 'System Settings'
+alt - l : open -a 'Launchpad'
+alt - c : open -a 'Calendar'
+alt - d : open -a 'Discord'
