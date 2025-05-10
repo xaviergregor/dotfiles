@@ -2,14 +2,6 @@
 
 #Theme
 theme = nord
-#theme = 0x96f
-#theme = Brogrammer
-#theme = ENCOM
-#theme = Homebrew
-#theme = Pro
-#theme = VibrantInk
-#theme = Wez
-#background = #212121
 title = 🦊
 
 #Fonts settings
@@ -18,8 +10,8 @@ font-size = 11
 #General settings
 
 macos-titlebar-style = tabs
-#background-opacity = 0.80
-#background-blur-radius = 75
+background-opacity = 0.80
+background-blur-radius = 75
 copy-on-select = clipboard
 quit-after-last-window-closed = false
 mouse-hide-while-typing = true
