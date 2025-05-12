@@ -34,6 +34,7 @@ mac:
 	ln -snvf ${PWD}/config/ghostty/config ~/.config/ghostty/config
 	mkdir -p ${HOME}/.config/skhd
 	ln -snvf ${PWD}/config/skhd/skhdrc ~/.config/skhd/skhdrc
+	ln -snvf ${PWD}/Brewfile ~/Brewfile
 	
 linux:
 	ln -snvf ${PWD}/.zshrc_linux ~/.zshrc
