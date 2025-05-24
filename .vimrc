@@ -12,9 +12,9 @@ set hlsearch
 set ruler
 
 call plug#begin('~/.vim/plugged')
-Plug 'nordtheme/vim'
+"Plug 'nordtheme/vim'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
-colorscheme nord
+"colorscheme nord
