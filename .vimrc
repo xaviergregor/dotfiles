@@ -11,6 +11,8 @@ set number
 set hlsearch
 set ruler
 
+let g:dracula_colorterm = 0
+
 call plug#begin('~/.vim/plugged')
 "Plug 'nordtheme/vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
