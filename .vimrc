@@ -11,13 +11,10 @@ set number
 set hlsearch
 set ruler
 
-let g:dracula_colorterm = 0
-
 call plug#begin('~/.vim/plugged')
-"Plug 'nordtheme/vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'nordtheme/vim'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
-colorscheme dracula
+colorscheme nord
