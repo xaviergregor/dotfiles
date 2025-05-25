@@ -1,6 +1,6 @@
 syntax on
 set background=dark
-"set termguicolors
+set termguicolors
 set mouse=a
 set ignorecase
 set tabstop=2
@@ -13,8 +13,9 @@ set ruler
 
 call plug#begin('~/.vim/plugged')
 "Plug 'nordtheme/vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
-"colorscheme nord
+colorscheme dracula
