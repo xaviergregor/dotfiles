@@ -50,4 +50,7 @@ linux:
 	ln -snvf ${PWD}/config/htop/htoprc ~/.config/htop/htoprc
 	mkdir -p ${HOME}/.config/ghostty/
 	ln -snvf ${PWD}/config/ghostty/config ~/.config/ghostty/config
-
+	mkdir -p ${HOME}/.config/yazi
+	ln -snvf ${PWD}/config/yazi/theme.toml ~/.config/yazi/theme.toml
+	ln -snvf ${PWD}/config/yazi/yazi.toml ~/.config/yazi/yazi.toml
+	
