@@ -16,6 +16,9 @@ vim:
 tmux:
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+yazi:
+	git clone https://github.com/dracula/yazi.git ~/.config/yazi/flavors/dracula.yazi
+
 shell:
 	sh -c "$$( $(CURL) $(OHMYZSH_INSTALL) )"
 
@@ -35,6 +38,9 @@ mac:
 	mkdir -p ${HOME}/.config/skhd
 	ln -snvf ${PWD}/config/skhd/skhdrc ~/.config/skhd/skhdrc
 	ln -snvf ${PWD}/Brewfile ~/Brewfile
+	mkdir -p ${HOME}/.config/yazi
+	ln -snvf ${PWD}/config/yazi/theme.toml ~/.config/yazi/theme.toml
+	ln -snvf ${PWD}/config/yazi/yazi.toml ~/.config/yazi/yazi.toml
 	
 linux:
 	ln -snvf ${PWD}/.zshrc_linux ~/.zshrc

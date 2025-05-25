@@ -1,7 +1,7 @@
 # Custom Ghostty Configuration by X4VI3RG
 
 #Theme
-theme = "nord"
+theme = "Dracula"
 title = 🦊
 
 #Fonts settings
@@ -18,7 +18,7 @@ mouse-hide-while-typing = true
 term = xterm-256color
 window-height = 30
 window-width = 120
-bold-is-bright = true
+#bold-is-bright = true
 
 #Keybinds
 
