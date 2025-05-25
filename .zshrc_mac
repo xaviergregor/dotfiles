@@ -51,7 +51,7 @@ else
 fi
 
 if $(which bat > /dev/null 2>&1); then
-  alias cat='bat -pp --theme Dracula'
+  alias cat='bat --theme Dracula -pp'
 fi
 
 alias c='clear'
