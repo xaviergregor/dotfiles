@@ -10,6 +10,7 @@ set ai
 set number
 set hlsearch
 set ruler
+set nocompatible
 
 let g:dracula_colorterm = 0
 
