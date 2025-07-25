@@ -37,7 +37,6 @@ brew "iproute2mac"
 brew "fastfetch"
 brew "speedtest"
 brew "m-cli"
-brew "skhd"
 
 # Programmes
 cask "adapter"
