@@ -1,6 +1,5 @@
 # Taps
 tap "teamookla/speedtest"
-tap "koekeishiya/formulae"
 
 # Commandes
 brew "go"
