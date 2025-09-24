@@ -11,14 +11,10 @@ set number
 set hlsearch
 set ruler
 set nocompatible
-
-let g:dracula_colorterm = 0
+"colorscheme habamax
 
 call plug#begin('~/.vim/plugged')
-"Plug 'nordtheme/vim'
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
-colorscheme dracula
