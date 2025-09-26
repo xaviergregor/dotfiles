@@ -1,32 +1,7 @@
 # Custom Ghostty Configuration by X4VI3RG
 
 #Themes
-#theme = iTerm2 Default
-
-#Colors based Vim Industry
-palette = 0=#303030
-palette = 1=#870000
-palette = 2=#5FD75F
-palette = 3=#AFAF00
-palette = 4=#87AFFF
-palette = 5=#AF00AF
-palette = 6=#00AFAF
-palette = 7=#6C6C6C
-palette = 8=#444444
-palette = 9=#FF0000
-palette = 10=#00FF00
-palette = 11=#FFFF00
-palette = 12=#005FFF
-palette = 13=#FF00FF
-palette = 14=#00FFFF
-palette = 15=#FFFFFF
-background = #000000
-foreground = #FFFFFF
-cursor-color = #e5e5e5
-cursor-text = #000000
-selection-background = #c1deff
-selection-foreground = #000000
-
+theme = Dracula
 
 title = 🦊
 
