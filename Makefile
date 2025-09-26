@@ -16,9 +16,6 @@ vim:
 tmux:
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-yazi:
-	ya pack -a kmlupreti/ayu-dark
-
 shell:
 	sh -c "$$( $(CURL) $(OHMYZSH_INSTALL) )"
 
@@ -36,9 +33,6 @@ mac:
 	mkdir -p ${HOME}/.config/ghostty/
 	ln -snvf ${PWD}/config/ghostty/config ~/.config/ghostty/config
 	ln -snvf ${PWD}/Brewfile ~/Brewfile
-	mkdir -p ${HOME}/.config/yazi
-	ln -snvf ${PWD}/config/yazi/theme.toml ~/.config/yazi/theme.toml
-	ln -snvf ${PWD}/config/yazi/yazi.toml ~/.config/yazi/yazi.toml
 	
 linux:
 	ln -snvf ${PWD}/.zshrc_linux ~/.zshrc
@@ -48,7 +42,4 @@ linux:
 	ln -snvf ${PWD}/config/htop/htoprc ~/.config/htop/htoprc
 	mkdir -p ${HOME}/.config/ghostty/
 	ln -snvf ${PWD}/config/ghostty/config ~/.config/ghostty/config
-	mkdir -p ${HOME}/.config/yazi
-	ln -snvf ${PWD}/config/yazi/theme.toml ~/.config/yazi/theme.toml
-	ln -snvf ${PWD}/config/yazi/yazi.toml ~/.config/yazi/yazi.toml
 	
