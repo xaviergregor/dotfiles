@@ -1,12 +1,7 @@
 # Custom Ghostty Configuration by X4VI3RG
 
 #Themes
-theme = Dracula
-
-#Colors
-background = #000000
-foreground = #C0C0C0
-cursor-color = #C0C0C0
+theme = ayu
 
 title = 🦊
 
