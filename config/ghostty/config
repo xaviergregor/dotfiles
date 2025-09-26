@@ -4,24 +4,6 @@
 theme = Dracula
 
 #Colors
-#palette = 0=#000000
-#palette = 1=#800000
-#palette = 2=#008000
-#palette = 3=#808000
-#palette = 4=#0000FF
-#palette = 5=#800080
-#palette = 6=#008080
-#palette = 7=#C0C0C0
-#palette = 8=#808080
-#palette = 9=#FF0000
-#palette = 10=#00FF00
-#palette = 11=#FFFF00
-#palette = 12=#0000FF
-#palette = 13=#FF00FF
-#palette = 14=#00FFFF
-#palette = 15=#FFFFFF
-#selection-background = #C0C0C0
-#selection-foreground = #000000
 background = #000000
 foreground = #C0C0C0
 cursor-color = #C0C0C0
