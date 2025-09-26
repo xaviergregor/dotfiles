@@ -21,9 +21,9 @@ palette = 13=#FF00FF
 palette = 14=#00FFFF
 palette = 15=#FFFFFF
 background = #000000
-foreground = #dadada
-cursor-color = #dadada
-cursor-text = #FFFFFF
+foreground = #FFFFFF
+cursor-color = #e5e5e5
+cursor-text = #000000
 selection-background = #c1deff
 selection-foreground = #000000
 
