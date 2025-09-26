@@ -13,7 +13,7 @@ set ruler
 set nocompatible
 
 "let g:dracula_colorterm = 0
-"let g:airline_theme='dracula'
+let g:airline_theme='simple'
 
 call plug#begin('~/.vim/plugged')
 "Plug 'dracula/vim', { 'as': 'dracula' }

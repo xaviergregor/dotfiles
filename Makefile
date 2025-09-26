@@ -17,7 +17,7 @@ tmux:
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 yazi:
-	git clone https://github.com/dracula/yazi.git ~/.config/yazi/flavors/dracula.yazi
+	ya pack -a kmlupreti/ayu-dark
 
 shell:
 	sh -c "$$( $(CURL) $(OHMYZSH_INSTALL) )"
