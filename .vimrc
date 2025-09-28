@@ -9,13 +9,14 @@ set hlsearch
 set ruler
 set nocompatible
 
-let g:airline_theme='simple'
+let g:dracula_colorterm = 0
+let g:airline_theme='dracula'
 
 call plug#begin('~/.vim/plugged')
-Plug 'ayu-theme/ayu-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
-colorscheme ayu
+colorscheme dracula
 
