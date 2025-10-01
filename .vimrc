@@ -3,6 +3,9 @@ set background=dark
 set termguicolors
 set mouse=a
 set ignorecase
+set tabstop=2
+set shiftwidth=2
+set expandtab
 set ai
 set number
 set hlsearch
