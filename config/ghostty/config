@@ -23,4 +23,5 @@ bold-is-bright = true
 
 #Keybinds
 
-keybind = global:alt+space=toggle_quick_terminal
+#keybind = global:alt+space=toggle_quick_terminal
+keybind = shift+enter=text:\x1b\r
