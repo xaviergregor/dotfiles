@@ -2,4 +2,4 @@
 
 My configuration files for 🍎 macOS et 🐧 Linux
 
-Use make to i,nstall stuff
+Use make to install stuff
