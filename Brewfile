@@ -37,7 +37,6 @@ brew "speedtest"
 brew "m-cli"
 
 # Programmes
-cask "adapter"
 cask "appcleaner"
 cask "applite"
 cask "balenaetcher"
