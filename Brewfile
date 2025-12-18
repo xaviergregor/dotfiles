@@ -1,5 +1,6 @@
 # Taps
 tap "teamookla/speedtest"
+tap "tw93/tap/mole"
 
 # Commandes
 brew "go"
@@ -35,6 +36,7 @@ brew "iproute2mac"
 brew "fastfetch"
 brew "speedtest"
 brew "m-cli"
+brew "mole"
 
 # Programmes
 cask "appcleaner"
