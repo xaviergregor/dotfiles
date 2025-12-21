@@ -11,6 +11,7 @@ set ai
 set number
 set hlsearch
 set ruler
+set t_Co=256
 
 let g:airline_theme = 'ghdark'
 
