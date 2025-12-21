@@ -12,10 +12,12 @@ set number
 set hlsearch
 set ruler
 
-let g:airline_theme = 'dark'
+let g:airline_theme = 'ghdark'
 
 call plug#begin('~/.vim/plugged')
+Plug 'wojciechkepka/vim-github-dark'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
+colorscheme ghdark
