@@ -27,8 +27,6 @@ zsh-plugins:
 mac:
 	ln -snvf ${PWD}/.zshrc_mac ~/.zshrc
 	ln -snvf ${PWD}/.vimrc ~/.vimrc
-	mkdir -p ${HOME}/.vim/colors
-	ln -snvf ${PWD}/config/xavier.vim ~/.vim/colors
 	ln -snvf ${PWD}/.tmux.conf ~/.tmux.conf
 	mkdir -p ${HOME}/.config/htop/
 	ln -snvf ${PWD}/config/htop/htoprc ~/.config/htop/htoprc
@@ -39,8 +37,6 @@ mac:
 linux:
 	ln -snvf ${PWD}/.zshrc_linux ~/.zshrc
 	ln -snvf ${PWD}/.vimrc ~/.vimrc
-	mkdir -p ${HOME}/.vim/colors
-	ln -snvf ${PWD}/config/xavier.vim ~/.vim/colors
 	ln -snvf ${PWD}/.tmux.conf ~/.tmux.conf
 	mkdir -p ${HOME}/.config/htop/
 	ln -snvf ${PWD}/config/htop/htoprc ~/.config/htop/htoprc

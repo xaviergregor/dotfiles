@@ -13,12 +13,12 @@ set hlsearch
 set ruler
 set t_Co=256
 
-let g:airline_theme = 'transparent'
+let g:airline_theme = 'ghdark'
 
 call plug#begin('~/.vim/plugged')
-Plug 'EdenEast/nightfox.nvim'
+Plug 'wojciechkepka/vim-github-dark'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
-colorscheme xavier
+colorscheme ghdark
