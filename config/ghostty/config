@@ -1,55 +1,10 @@
 # Custom Ghostty Configuration by X4VI3RG
 
 #Themes
-
-# Background & Foreground
-background = 0d1117
-foreground = c9d1d9
-
-# Cursor
-cursor-color = 3fb950
-cursor-style = block
-cursor-style-blink = true
-
-# Selection
-selection-background = 1c2128
-selection-foreground = f0f6fc
-
-# Standard Colors (0-7)
-# Black
-palette = 0=#0d1117
-# Red
-palette = 1=#f85149
-# Green
-palette = 2=#3fb950
-# Yellow
-palette = 3=#d29922
-# Blue
-palette = 4=#58a6ff
-# Purple/Magenta
-palette = 5=#a371f7
-# Cyan
-palette = 6=#56d4dd
-# White
-palette = 7=#c9d1d9
-
-# Bright Colors (8-15)
-# Bright Black (Gray)
-palette = 8=#484f58
-# Bright Red
-palette = 9=#f85149
-# Bright Green
-palette = 10=#3fb950
-# Bright Yellow
-palette = 11=#e3b341
-# Bright Blue
-palette = 12=#58a6ff
-# Bright Purple/Magenta
-palette = 13=#a371f7
-# Bright Cyan
-palette = 14=#56d4dd
-# Bright White
-palette = 15=#f0f6fc
+theme = "Homebrew"
+background = #080808
+foreground = #f0f6fc
+palette = 4=#0433ff
 
 title = 👻
 
@@ -59,8 +14,8 @@ font-size = 11
 #General settings
 
 macos-titlebar-style = tabs
-#background-opacity = 0.85
-#background-blur-radius = 75
+background-opacity = 0.85
+background-blur-radius = 75
 copy-on-select = clipboard
 quit-after-last-window-closed = false
 mouse-hide-while-typing = true
