@@ -4,6 +4,7 @@ set background=dark
 set termguicolors
 set mouse=a
 set ignorecase
+set smartcase
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -11,7 +12,6 @@ set ai
 set number
 set hlsearch
 set ruler
-set t_Co=256
 
 let g:airline_theme = 'minimalist'
 
@@ -20,4 +20,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
+
+nnoremap <C-n> :NERDTreeToggle<CR>
+
 colorscheme industry
