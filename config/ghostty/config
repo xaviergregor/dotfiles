@@ -3,7 +3,7 @@
 #Themes
 theme = "Homebrew"
 #theme = "Pro"
-background = #080808
+background = #0c1015
 foreground = #f0f6fc
 palette = 4=#0433ff
 
