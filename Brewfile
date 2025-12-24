@@ -37,6 +37,7 @@ brew "fastfetch"
 brew "speedtest"
 brew "m-cli"
 brew "mole"
+brew "ripgrep"
 
 # Programmes
 cask "appcleaner"
