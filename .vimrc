@@ -1,7 +1,7 @@
 set nocompatible
 syntax on
 set background=dark
-"set termguicolors
+set termguicolors
 set mouse=a
 set ignorecase
 set tabstop=2
@@ -13,11 +13,11 @@ set hlsearch
 set ruler
 set t_Co=256
 
-let g:airline_theme = 'term'
+let g:airline_theme = 'minimalist'
 
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
-"colorscheme argonaut
+colorscheme industry
