@@ -40,3 +40,12 @@ nnoremap <leader>g :Rg<CR>
 nnoremap <leader>b :Buffers<CR>
 
 colorscheme industry
+
+" Force background after colorscheme
+highlight Normal        guibg=#080808 ctermbg=232
+highlight LineNr        guibg=#080808 ctermbg=232
+highlight SignColumn    guibg=#080808 ctermbg=232
+highlight FoldColumn    guibg=#080808 ctermbg=232
+highlight CursorLineNr  guibg=#080808 ctermbg=232
+highlight EndOfBuffer   guibg=#080808 ctermbg=232
+highlight NonText       guibg=#080808 ctermbg=232
