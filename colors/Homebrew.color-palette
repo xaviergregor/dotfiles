@@ -1,0 +1,133 @@
+{
+  "colors" : [
+    {
+      "components" : [
+        0,
+        0,
+        0
+      ],
+      "name" : "Noir"
+    },
+    {
+      "components" : [
+        0.3185,
+        0,
+        0
+      ],
+      "name" : "Rouge"
+    },
+    {
+      "components" : [
+        0,
+        0.3813,
+        0
+      ],
+      "name" : "Vert"
+    },
+    {
+      "components" : [
+        0.3185,
+        0.3185,
+        0
+      ],
+      "name" : "Jaune"
+    },
+    {
+      "components" : [
+        0.0144,
+        0.0027,
+        0.7084
+      ],
+      "name" : "Bleu"
+    },
+    {
+      "components" : [
+        0.4452,
+        0,
+        0.4452
+      ],
+      "name" : "Magenta"
+    },
+    {
+      "components" : [
+        0,
+        0.3813,
+        0.4452
+      ],
+      "name" : "Cyan"
+    },
+    {
+      "components" : [
+        0.521,
+        0.521,
+        0.521
+      ],
+      "name" : "Blanc"
+    },
+    {
+      "components" : [
+        0.1329,
+        0.1329,
+        0.1329
+      ],
+      "name" : "Noir brillant"
+    },
+    {
+      "components" : [
+        0.7835,
+        0,
+        0
+      ],
+      "name" : "Rouge brillant"
+    },
+    {
+      "components" : [
+        0,
+        0.6939,
+        0
+      ],
+      "name" : "Vert brillant"
+    },
+    {
+      "components" : [
+        0.7835,
+        0.7835,
+        0
+      ],
+      "name" : "Jaune brillant"
+    },
+    {
+      "components" : [
+        0,
+        0,
+        1
+      ],
+      "name" : "Bleu brillant"
+    },
+    {
+      "components" : [
+        0.7835,
+        0,
+        0.7835
+      ],
+      "name" : "Magenta brillant"
+    },
+    {
+      "components" : [
+        0,
+        0.7835,
+        0.7835
+      ],
+      "name" : "Cyan brillant"
+    },
+    {
+      "components" : [
+        0.7835,
+        0.7835,
+        0.7835
+      ],
+      "name" : "Blanc brillant"
+    }
+  ],
+  "name" : "Homebrew"
+}
