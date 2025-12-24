@@ -1,7 +1,8 @@
 # Custom Ghostty Configuration by X4VI3RG
 
 #Themes
-theme = "Homebrew"
+#theme = "Homebrew"
+theme = "Pro"
 background = #080808
 foreground = #f0f6fc
 palette = 4=#0433ff
