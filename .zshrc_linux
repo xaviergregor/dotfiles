@@ -62,7 +62,7 @@ else
 fi
 
 if $(which batcat > /dev/null 2>&1); then
-  alias cat='batcat --theme "Nord" -pp'
+  alias cat='batcat -pp'
 fi
 
 alias c='clear'

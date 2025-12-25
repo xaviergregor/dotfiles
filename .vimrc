@@ -43,10 +43,10 @@ nnoremap <leader>b :Buffers<CR>
 colorscheme ayu
 
 " Force background after colorscheme
-highlight Normal        guibg=#0b0e14 ctermbg=232
-highlight LineNr        guibg=#0b0e14 ctermbg=232
-highlight SignColumn    guibg=#0b0e14 ctermbg=232
-highlight FoldColumn    guibg=#0b0e14 ctermbg=232
-highlight CursorLineNr  guibg=#0b0e14 ctermbg=232
-highlight EndOfBuffer   guibg=#0b0e14 ctermbg=232
-highlight NonText       guibg=#0b0e14 ctermbg=232
+"highlight Normal        guibg=#0b0e14 ctermbg=232
+"highlight LineNr        guibg=#0b0e14 ctermbg=232
+"highlight SignColumn    guibg=#0b0e14 ctermbg=232
+"highlight FoldColumn    guibg=#0b0e14 ctermbg=232
+"highlight CursorLineNr  guibg=#0b0e14 ctermbg=232
+"highlight EndOfBuffer   guibg=#0b0e14 ctermbg=232
+"highlight NonText       guibg=#0b0e14 ctermbg=232

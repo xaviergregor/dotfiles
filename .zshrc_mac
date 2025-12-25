@@ -51,7 +51,7 @@ else
 fi
 
 if $(which bat > /dev/null 2>&1); then
-  alias cat='bat --theme "Nord" -pp'
+  alias cat='bat -pp'
 fi
 
 alias c='clear'
