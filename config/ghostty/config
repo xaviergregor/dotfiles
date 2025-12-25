@@ -1,10 +1,7 @@
 # Custom Ghostty Configuration by X4VI3RG
 
 #Themes
-theme = "Nord"
-#background = #0c1015
-#foreground = #f0f6fc
-#palette = 4=#0433ff
+theme = "Ayu"
 
 title = 👻
 

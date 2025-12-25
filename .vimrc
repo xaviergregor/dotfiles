@@ -23,13 +23,13 @@ set ttyfast
 set synmaxcol=200
 
 let mapleader=" "
-let g:airline_theme = 'nord'
+let g:airline_theme = 'ayu'
 
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'nordtheme/vim'
+Plug 'ayu-theme/ayu-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
@@ -40,13 +40,13 @@ nnoremap <leader>f :Files<CR>
 nnoremap <leader>g :Rg<CR>
 nnoremap <leader>b :Buffers<CR>
 
-colorscheme nord
+colorscheme ayu
 
 " Force background after colorscheme
-"highlight Normal        guibg=#0c1015 ctermbg=232
-"highlight LineNr        guibg=#0c1015 ctermbg=232
-"highlight SignColumn    guibg=#0c1015 ctermbg=232
-"highlight FoldColumn    guibg=#0c1015 ctermbg=232
-"highlight CursorLineNr  guibg=#0c1015 ctermbg=232
-"highlight EndOfBuffer   guibg=#0c1015 ctermbg=232
-"highlight NonText       guibg=#0c1015 ctermbg=232
+highlight Normal        guibg=#0b0e14 ctermbg=232
+highlight LineNr        guibg=#0b0e14 ctermbg=232
+highlight SignColumn    guibg=#0b0e14 ctermbg=232
+highlight FoldColumn    guibg=#0b0e14 ctermbg=232
+highlight CursorLineNr  guibg=#0b0e14 ctermbg=232
+highlight EndOfBuffer   guibg=#0b0e14 ctermbg=232
+highlight NonText       guibg=#0b0e14 ctermbg=232
