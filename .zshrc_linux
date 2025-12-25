@@ -8,12 +8,12 @@ precmd() { print "" }
 if [[ $UID -eq 0 ]]; then
     # Set the prompt color to red for the root user
 
-    PROMPT="%B%F{cyan}%T%f%b %B%F{red}%m%f%b %B%F{cyan}→%f%b %B%F{34}%~%f%b "
+    PROMPT="%B%F{cyan}%T%f%b %B%F{red}%m%f%b %B%F{cyan}→%f%b %B%F{green}%~%f%b "
   else
 
     # Set the prompt color to your desired color for non-root users
 
-    PROMPT="%B%F{cyan}%T%f%b %B%F{34}%m%f%b %B%F{cyan}→%f%b %B%F{34}%~%f%b "
+    PROMPT="%B%F{cyan}%T%f%b %B%F{green}%m%f%b %B%F{cyan}→%f%b %B%F{green}%~%f%b "
 fi
 
 # Which plugins would you like to load?
@@ -62,7 +62,7 @@ else
 fi
 
 if $(which batcat > /dev/null 2>&1); then
-  alias cat='batcat -pp'
+  alias cat='batcat --theme "Nord" -pp'
 fi
 
 alias c='clear'
