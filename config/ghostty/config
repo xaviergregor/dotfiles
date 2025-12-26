@@ -1,20 +1,20 @@
 # Custom Ghostty Configuration by X4VI3RG
 
 #Themes
-theme = Dracula
+theme = Wez
 
 # Background & Foreground
-#background = 0d1117
-#foreground = e6edf3
+background = 0d1117
+foreground = e6edf3
 
-## Cursor
+# Cursor
 #cursor-color = 3fb950
 #cursor-style = block
 #cursor-style-blink = true
 #
 ## Selection
-#selection-background = 3fb950
-#selection-foreground = 0d1117
+selection-background = 3fb950
+selection-foreground = e6edf3
 #
 ## Normal colors (0-7)
 #palette = 0=#161b22
