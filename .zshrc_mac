@@ -51,11 +51,11 @@ else
 fi
 
 if $(which bat > /dev/null 2>&1); then
-  alias cat='bat -pp'
+  alias cat='bat --theme Dracula -pp'
 fi
 
 alias c='clear'
-alias ansiweather='ansiweather -l "Mauguio,FR" -H true -s true -d true'
+alias ansiweather='ansiweather -l "Mauguio,FR" -H true -s true -d true -a false -i true -w true -h true -p true'
 alias cheat='cheat -c'
 alias grep='grep --color=auto'
 alias geoip='/opt/homebrew/bin/geoip.bash'
