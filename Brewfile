@@ -3,6 +3,7 @@ tap "teamookla/speedtest"
 tap "tw93/tap/mole"
 
 # Commandes
+brew "snitch"
 brew "go"
 brew "fd"
 brew "duf"

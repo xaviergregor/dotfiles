@@ -8,34 +8,13 @@ background = 0d1117
 foreground = e6edf3
 
 # Cursor
-#cursor-color = 3fb950
-#cursor-style = block
-#cursor-style-blink = true
-#
-## Selection
+cursor-color = 3fb950
+cursor-style = bar
+cursor-style-blink = true
+
+# Selection
 selection-background = 3fb950
 selection-foreground = e6edf3
-#
-## Normal colors (0-7)
-#palette = 0=#161b22
-#palette = 1=#f85149
-#palette = 2=#3fb950
-#palette = 3=#d29922
-#palette = 4=#58a6ff
-#palette = 5=#a371f7
-#palette = 6=#56d4dd
-#palette = 7=#8b949e
-#
-## Bright colors (8-15)
-#palette = 8=#30363d
-#palette = 9=#ff7b72
-#palette = 10=#56d364
-#palette = 11=#e3b341
-#palette = 12=#79c0ff
-#palette = 13=#d2a8ff
-#palette = 14=#76e4f7
-#palette = 15=#f0f6fc
-
 
 title = 👻
 
