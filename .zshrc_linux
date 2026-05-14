@@ -72,3 +72,4 @@ alias grep='grep --color=auto'
 #alias mv='mv -i'
 alias ff='fastfetch'
 alias gtboo='ghostty +boo'
+export PATH="$HOME/.local/bin:$PATH"
