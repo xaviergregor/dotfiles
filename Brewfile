@@ -41,6 +41,7 @@ brew "mole"
 brew "ripgrep"
 
 # Programmes
+cask "aldente"
 cask "applite"
 cask "balenaetcher"
 cask "coteditor"
