@@ -1,6 +1,7 @@
 # Taps
 tap "teamookla/speedtest"
 tap "tw93/tap/mole"
+tap "aprilnea/tap/openlogi"
 
 # Commandes
 brew "snitch"
@@ -56,6 +57,7 @@ cask "keka"
 cask "keyboardcleantool"
 cask "netnewswire"
 cask "mactracker"
+cask "openlogi"
 cask "orbstack"
 cask "protonvpn"
 cask "raspberry-pi-imager"
