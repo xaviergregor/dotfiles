@@ -31,7 +31,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'christoomey/vim-system-copy'
+Plug 'ojroques/vim-oscyank'
 call plug#end()
 
 nnoremap <C-n> :NERDTreeToggle<CR>
