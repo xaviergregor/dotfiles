@@ -4,7 +4,7 @@ OHMYZSH_INSTALL := https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tool
 BREW_INSTALL := https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
 
 cmd:
-	sudo apt install -y grc bat zsh htop golang curl vim tmux gcc g++ ranger 
+	sudo apt install -y grc bat zsh htop golang curl vim tmux gcc g++ ranger fzf 
 	
 brew:
 	bash -c "$$( $(CURL) $(BREW_INSTALL) )"

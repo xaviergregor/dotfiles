@@ -40,6 +40,7 @@ brew "speedtest"
 brew "m-cli"
 brew "mole"
 brew "ripgrep"
+brew "fzf"
 
 # Programmes
 cask "aldente"
