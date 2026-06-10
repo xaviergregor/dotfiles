@@ -40,6 +40,12 @@ nnoremap <leader>f :Files<CR>
 nnoremap <leader>g :Rg<CR>
 nnoremap <leader>b :Buffers<CR>
 
+" --- Configuration de vim-oscyank ---
+nmap <leader>c <Plug>OSCYankOperator
+nmap <leader>cc <leader>c_
+vmap <leader>c <Plug>OSCYankVisual
+
+
 colorscheme industry 
 
 " Force background after colorscheme
