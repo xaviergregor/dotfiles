@@ -22,6 +22,7 @@ fi
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+fzf
 git
 git-prompt
 web-search
@@ -36,6 +37,9 @@ colored-man-pages
 autoload -U compinit && compinit # reload completions for zsh-completions
 
 source $ZSH/oh-my-zsh.sh
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 # Colorize autosuggest
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
