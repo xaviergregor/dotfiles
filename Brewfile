@@ -44,7 +44,6 @@ brew "fzf"
 
 # Programmes
 cask "aldente"
-cask "applite"
 cask "balenaetcher"
 cask "coteditor"
 cask "tor-browser"
