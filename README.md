@@ -75,6 +75,6 @@ Inspiré par la communauté [dotfiles](https://dotfiles.github.io/) et les nombr
 
 <div align="center">
 
-**[XGR Solutions](https://xgr-solutions.fr)** • Fait avec ❤️ par Xavier Gregor
+Fait avec ❤️ par Xavier Gregor
 
 </div>
