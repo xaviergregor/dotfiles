@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ============================================
-# Installation Firefox dernière version
+# Installation Firefox (dépôt officiel Mozilla)
 # Suppression Firefox ESR
 # Debian 13
 # ============================================
@@ -14,7 +14,7 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
-echo "🦊 Début de l'installation de Firefox (dernière version)..."
+echo "🦊 Début de l'installation de Firefox via dépôt Mozilla..."
 
 # ============================================
 # 1. Suppression de Firefox ESR
@@ -37,113 +37,76 @@ echo "📦 Installation des dépendances..."
 apt install -y \
     wget \
     curl \
-    bzip2 \
-    libdbus-glib-1-2 \
-    libgtk-3-0 \
-    libx11-xcb1 \
-    libxt6
+    gnupg \
+    apt-transport-https
 
 echo "✅ Dépendances installées"
 
 # ============================================
-# 3. Téléchargement de Firefox
+# 3. Ajout de la clé GPG Mozilla
 # ============================================
 echo ""
-echo "⬇️  Téléchargement de Firefox..."
+echo "🔑 Ajout de la clé GPG Mozilla..."
 
-FIREFOX_URL="https://download.mozilla.org/?product=firefox-latest-ssl&os=linux64&lang=fr"
-FIREFOX_ARCHIVE="/tmp/firefox-latest.tar.bz2"
+install -d -m 0755 /etc/apt/keyrings
 
-wget -O "$FIREFOX_ARCHIVE" "$FIREFOX_URL" --progress=bar:force 2>&1
+wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- \
+    | tee /etc/apt/keyrings/packages.mozilla.org.asc > /dev/null
 
-echo "✅ Firefox téléchargé"
-
-# ============================================
-# 4. Installation
-# ============================================
-echo ""
-echo "📂 Installation de Firefox dans /opt/firefox..."
-
-# Suppression ancienne installation si existante
-if [[ -d /opt/firefox ]]; then
-    echo "🔄 Suppression de l'ancienne installation..."
-    rm -rf /opt/firefox
-fi
-
-tar -xjf "$FIREFOX_ARCHIVE" -C /opt/
-
-echo "✅ Firefox extrait dans /opt/firefox"
+echo "✅ Clé GPG ajoutée"
 
 # ============================================
-# 5. Création du lien symbolique
+# 4. Ajout du dépôt Mozilla
 # ============================================
 echo ""
-echo "🔗 Création du lien symbolique..."
+echo "📋 Ajout du dépôt Mozilla..."
 
-ln -sf /opt/firefox/firefox /usr/local/bin/firefox
-
-echo "✅ Lien symbolique créé"
-
-# ============================================
-# 6. Création du fichier .desktop
-# ============================================
-echo ""
-echo "🖥️  Création du raccourci bureau..."
-
-cat > /usr/share/applications/firefox.desktop << 'EOF'
-[Desktop Entry]
-Name=Firefox
-Comment=Navigateur Web
-GenericName=Web Browser
-Exec=/opt/firefox/firefox %u
-Icon=/opt/firefox/browser/chrome/icons/default/default128.png
-Terminal=false
-Type=Application
-MimeType=text/html;text/xml;application/xhtml+xml;application/vnd.mozilla.xul+xml;text/mml;x-scheme-handler/http;x-scheme-handler/https;
-StartupNotify=true
-Categories=Network;WebBrowser;
-Keywords=web;browser;internet;
-StartupWMClass=firefox
+cat > /etc/apt/sources.list.d/mozilla.list << 'EOF'
+deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://packages.mozilla.org/apt mozilla main
 EOF
 
-echo "✅ Raccourci bureau créé"
+echo "✅ Dépôt Mozilla ajouté"
 
 # ============================================
-# 7. Définir comme navigateur par défaut
-# ============================================
-echo ""
-echo "🌐 Définition comme navigateur par défaut..."
-
-update-alternatives --install /usr/bin/x-www-browser x-www-browser /opt/firefox/firefox 200
-update-alternatives --set x-www-browser /opt/firefox/firefox
-
-echo "✅ Firefox défini comme navigateur par défaut"
-
-# ============================================
-# 8. Nettoyage
+# 5. Priorité au dépôt Mozilla
+# (évite les conflits avec les paquets Debian)
 # ============================================
 echo ""
-echo "🧹 Nettoyage..."
+echo "⚙️  Configuration des priorités apt..."
 
-rm -f "$FIREFOX_ARCHIVE"
+cat > /etc/apt/preferences.d/mozilla << 'EOF'
+Package: *
+Pin: origin packages.mozilla.org
+Pin-Priority: 1000
+EOF
 
-echo "✅ Nettoyage effectué"
+echo "✅ Priorités configurées"
 
 # ============================================
-# 9. Vérification
+# 6. Mise à jour et installation
+# ============================================
+echo ""
+echo "⬇️  Mise à jour des dépôts et installation de Firefox..."
+
+apt update
+apt install -y firefox
+
+echo "✅ Firefox installé"
+
+# ============================================
+# 7. Vérification
 # ============================================
 echo ""
 echo "🔍 Vérification de l'installation..."
 
-FIREFOX_VERSION=$(/opt/firefox/firefox --version 2>/dev/null)
+FIREFOX_VERSION=$(firefox --version 2>/dev/null)
 echo "✅ $FIREFOX_VERSION"
 
 echo ""
 echo "============================================"
 echo "🎉 Installation terminée avec succès !"
 echo "============================================"
-echo "📌 Firefox installé dans : /opt/firefox"
-echo "📌 Commande : firefox"
+echo "📌 Mises à jour via : sudo apt update && sudo apt upgrade"
 echo "📌 Version : $FIREFOX_VERSION"
 echo "============================================"
 
