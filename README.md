@@ -13,7 +13,7 @@ Ce dépôt contient l'ensemble de mes fichiers de configuration (dotfiles) pour 
 ## ✨ Fonctionnalités
 
 - 🍎 **Compatible macOS** - Configuration optimisée pour les systèmes Apple
-- 🐧 **Compatible Linux** - Fonctionne sur les principales distributions
+- 🐧 **Compatible Linux** - Fonctionne sur les distributions sur base Debian
 - ⚡ **Installation simplifiée** - Utilisation de `make` pour automatiser le déploiement
 - 🔄 **Synchronisation facile** - Gardez vos configurations à jour sur toutes vos machines
 - 📦 **Modularité** - Organisation claire des fichiers de configuration
