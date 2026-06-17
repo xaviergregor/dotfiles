@@ -32,7 +32,7 @@ mouse-hide-while-typing = true
 term = xterm-256color
 window-height = 30
 window-width = 120
-#bold-is-bright = true
+bold-is-bright = true
 bell-features = system,attention,title
 
 #Keybinds
