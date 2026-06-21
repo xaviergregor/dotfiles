@@ -58,4 +58,4 @@ brew-clean: ## Désinstalle ce qui n'est plus dans le Brewfile
 	brew bundle cleanup --force
 
 prefs-mac:
-	sudo ./${PWD}/scripts/prefs_mac.sh
+	sudo ${PWD}/scripts/prefs_mac.sh
