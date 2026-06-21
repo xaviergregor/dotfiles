@@ -32,7 +32,7 @@ Ce dépôt contient l'ensemble de mes fichiers de configuration (dotfiles) pour 
 ### Cloner le dépôt
 
 ```bash
-git clone https://github.com/xaviergregor/dotfiles.git ~/dotfiles
+git clone https://github.com/xaviergregor/dotfiles.git
 cd ~/dotfiles
 ```
 
