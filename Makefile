@@ -52,7 +52,7 @@ brew-install: ## Installe les dépendances depuis le Brewfile
 	brew bundle
 
 brew-check: ## Vérifie que tout est installé
-	brew bundle check
+	brew bundle check --verbose
 
 brew-clean: ## Désinstalle ce qui n'est plus dans le Brewfile
 	brew bundle cleanup --force	
