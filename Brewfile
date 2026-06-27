@@ -34,6 +34,7 @@ brew "fastfetch"
 brew "m-cli"
 brew "ripgrep"
 brew "fzf"
+brew "yazi"
 
 # Programmes
 cask "aldente"
