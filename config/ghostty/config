@@ -1,14 +1,14 @@
 # Custom Ghostty Configuration by X4VI3RG
 
 #Themes
-theme = Wez
+theme = Dracula
 
 # Background & Foreground
-background = 0d1117
-foreground = e6edf3
+#background = 0d1117
+#foreground = e6edf3
 
 # Cursor
-cursor-color = 3fb950
+#cursor-color = 3fb950
 cursor-style = bar
 cursor-style-blink = true
 
