@@ -1,0 +1,72 @@
+##############################################
+#                                            #
+#               Xavier Theme               #
+#                                            #
+##############################################
+
+
+###############################################################################
+#                           Code Syntax Highlighting                          #
+###############################################################################
+
+# Find one you like at: https://github.com/alecthomas/chroma/blob/master/styles.
+
+code_syntax_highlight = "xavier"
+
+###############################################################################
+#                                 Base Colors                                 #
+###############################################################################
+
+#-- Full Screen
+full_screen_fg = "#e6edf3"
+full_screen_bg = "#0d1117"
+
+#-- Gradient
+# Note: This currently only supports two colors.
+gradient_color = ["#FFB454", "#36A3D9"]
+
+#-- File Panel
+file_panel_fg = "#e6edf3"
+file_panel_bg = "#0d1117"
+file_panel_border = "#242936"
+file_panel_border_active = "#ffcc66"
+file_panel_top_directory_icon = "#aad94c"
+file_panel_top_path = "#ffcc66"
+file_panel_item_selected_fg = "#36a3d9"
+file_panel_item_selected_bg = "#1f2430"
+
+#-- Footer
+footer_fg = "#e6edf3"
+footer_bg = "#0d1117"
+footer_border = "#242936"
+footer_border_active = "#aad94c"
+
+#-- Sidebar
+sidebar_fg = "#e6edf3"
+sidebar_bg = "#0d1117"
+sidebar_title = "#36a3d9"
+sidebar_border = "#1f2430"
+sidebar_border_active = "#ff7733"
+sidebar_item_selected_fg = "#36a3d9"
+sidebar_item_selected_bg = "#1f2430"
+sidebar_divider = "#242936"
+
+#-- Modals
+modal_fg = "#e6edf3"
+modal_bg = "#0d1117"
+modal_border_active = "#5c6773"
+modal_cancel_fg = "#0d1117"
+modal_cancel_bg = "#f07178"
+modal_confirm_fg = "#0d1117"
+modal_confirm_bg = "#36a3d9"
+
+#-- Help Menu
+help_menu_hotkey = "#36a3d9"
+help_menu_title = "#f07178"
+
+#-- Special
+cursor = "#ffcc66"
+correct = "#aad94c"
+error = "#ff3333"
+hint = "#36a3d9"
+cancel = "#f07178"
