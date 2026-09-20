@@ -26,6 +26,7 @@ let mapleader=" "
 let g:airline_theme = 'minimalist'
 
 call plug#begin('~/.vim/plugged')
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
@@ -46,13 +47,13 @@ nmap <leader>cc <leader>c_
 vmap <leader>c <Plug>OSCYankVisual
 
 
-colorscheme industry 
+colorscheme dracula
 
 " Force background after colorscheme
-highlight Normal        guibg=#0d1117 ctermbg=232
-highlight LineNr        guibg=#0d1117 ctermbg=232
-highlight SignColumn    guibg=#0d1117 ctermbg=232
-highlight FoldColumn    guibg=#0d1117 ctermbg=232
-highlight CursorLineNr  guibg=#0d1117 ctermbg=232
-highlight EndOfBuffer   guibg=#0d1117 ctermbg=232
-highlight NonText       guibg=#0d1117 ctermbg=232
+"highlight Normal        guibg=#0d1117 ctermbg=232
+"highlight LineNr        guibg=#0d1117 ctermbg=232
+"highlight SignColumn    guibg=#0d1117 ctermbg=232
+"highlight FoldColumn    guibg=#0d1117 ctermbg=232
+"highlight CursorLineNr  guibg=#0d1117 ctermbg=232
+"highlight EndOfBuffer   guibg=#0d1117 ctermbg=232
+"highlight NonText       guibg=#0d1117 ctermbg=232
