@@ -8,7 +8,7 @@ theme = Dracula
 #foreground = e6edf3
 
 # Icon
-macos-icon = retro
+#macos-icon = glass
 
 # Cursor
 #cursor-color = 3fb950
