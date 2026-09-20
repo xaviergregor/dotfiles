@@ -22,7 +22,6 @@ fi
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-fzf
 git
 git-prompt
 web-search
@@ -37,9 +36,6 @@ colored-man-pages
 autoload -U compinit && compinit # reload completions for zsh-completions
 
 source $ZSH/oh-my-zsh.sh
-
-# Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
 
 # Colorize autosuggest
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
@@ -77,9 +73,6 @@ alias grep='grep --color=auto'
 alias ff='fastfetch'
 alias gtboo='ghostty +boo'
 export PATH="$HOME/.local/bin:$PATH"
-
-# FZF Theme Dracula
-export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 
 # ---------------------
 # eza universal Dracula
