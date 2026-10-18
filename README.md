@@ -39,85 +39,25 @@ cd ~/dotfiles
 
 ---
 
-### Tout installer d'un coup
-
-```bash
-make install
-```
-
-Détecte macOS ou Linux (Debian / Ubuntu) et enchaîne les étapes ci-dessous dans l'ordre. Relançable sans risque : ce qui est déjà installé est sauté. Les préférences macOS (`make prefs-mac`) restent à lancer à part.
-
----
-
 ## 📋 Commandes disponibles
 
-### 📦 Installation des paquets système
+À lancer depuis `~/dotfiles`. Chaque commande peut être relancée sans risque.
 
 | Commande | Description |
 |---|---|
-| `make debian` | Installe les paquets essentiels sur Debian |
-| `make ubuntu` | Installe les paquets essentiels sur Ubuntu (+ Ghostty) |
-
-Paquets installés : `grc`, `bat`, `zsh`, `htop`, `golang`, `curl`, `vim`, `tmux`, `gcc`, `g++`, `ranger`
-
-Installés s'ils existent dans les dépôts de la version (sinon ignorés) : `eza`, et `ghostty` sur Ubuntu
-
----
-
-### 🍺 Homebrew (macOS)
-
-| Commande | Description |
-|---|---|
-| `make brew` | Installe Homebrew |
-| `make brew-install` | Installe toutes les dépendances depuis le `Brewfile` |
-| `make brew-check` | Vérifie que tout le Brewfile est installé |
-| `make brew-clean` | Désinstalle ce qui n'est plus dans le Brewfile |
-
----
-
-### 🐚 Shell & Plugins
-
-| Commande | Description |
-|---|---|
+| `make apt` | Paquets système Debian / Ubuntu : `grc`, `bat`, `zsh`, `htop`, `golang`, `curl`, `vim`, `tmux`, `gcc`, `g++`, `ranger` (+ `eza` et `ghostty` s'ils existent dans les dépôts) |
+| `make brew` | Installe Homebrew (macOS) |
+| `make brew-install` | Installe les paquets du `Brewfile` (macOS) |
 | `make shell` | Installe Oh My Zsh |
-| `make zsh-plugins` | Installe les plugins zsh (syntax-highlighting, completions, autosuggestions) |
+| `make zsh-plugins` | Installe zsh-syntax-highlighting, zsh-completions et zsh-autosuggestions |
+| `make vim` | Installe vim-plug |
+| `make tmux` | Installe TPM (Tmux Plugin Manager) |
+| `make link` | Crée les liens symboliques (tableau ci-dessous) |
+| `make prefs-mac` | Préférences système macOS, à lancer **sans** sudo. Crée `scripts/local.env` en posant les questions s'il manque |
 
-Plugins installés dans `~/.oh-my-zsh/custom/plugins/` :
-- `zsh-syntax-highlighting`
-- `zsh-completions`
-- `zsh-autosuggestions`
+Pour le Brewfile : `brew bundle check` vérifie ce qui manque, `brew bundle cleanup` liste ce qui n'y est plus.
 
----
-
-### 🛠️ Outils
-
-| Commande | Description |
-|---|---|
-| `make vim` | Installe vim-plug (`~/.vim/autoload/plug.vim`) |
-| `make tmux` | Installe TPM — Tmux Plugin Manager (`~/.tmux/plugins/tpm`) |
-
----
-
-### 🔗 Liens symboliques & configuration
-
-| Commande | Description |
-|---|---|
-| `make mac` | Crée les liens symboliques pour macOS |
-| `make linux` | Crée les liens symboliques pour Linux |
-| `make prefs-mac` | Applique les préférences système macOS (via `scripts/prefs_mac.sh`, à lancer **sans** sudo) |
-
-#### Fichiers liés sur macOS (`make mac`)
-
-| Source (dépôt) | Destination |
-|---|---|
-| `.zshrc` | `~/.zshrc` |
-| `.vimrc` | `~/.vimrc` |
-| `.tmux.conf` | `~/.tmux.conf` |
-| `config/htop/htoprc` | `~/.config/htop/htoprc` |
-| `config/ghostty/config` | `~/.config/ghostty/config` |
-| `Brewfile` | `~/Brewfile` |
-
-#### Fichiers liés sur Linux (`make linux`)
+### Fichiers liés (`make link`)
 
 | Source (dépôt) | Destination |
 |---|---|
@@ -132,53 +72,28 @@ Plugins installés dans `~/.oh-my-zsh/custom/plugins/` :
 ## 🍎 Installation complète macOS
 
 ```bash
-# 1. Installer Homebrew
 make brew
-
-# 2. Installer Oh My Zsh
-make shell
-
-# 3. Installer les plugins zsh
-make zsh-plugins
-
-# 4. Installer vim-plug
-make vim
-
-# 5. Installer TPM pour tmux
-make tmux
-
-# 6. Créer les liens symboliques
-make mac
-
-# 7. Installer les dépendances Homebrew
 make brew-install
-
-# 8. (Optionnel) Appliquer les préférences système
-#    Si scripts/local.env n'existe pas, le script demande nom / email / téléphone et le crée
-make prefs-mac
+make shell          # remplace ~/.zshrc (sauvegardé en ~/.zshrc.pre-oh-my-zsh)
+make zsh-plugins
+make vim
+make tmux
+make link           # après make shell, pour remettre le .zshrc du dépôt
+make prefs-mac      # optionnel
 ```
 
-## 🐧 Installation complète Linux (Ubuntu)
+## 🐧 Installation complète Linux (Debian / Ubuntu)
 
 ```bash
-# 1. Installer les paquets système
-make ubuntu
-
-# 2. Installer Oh My Zsh
+make apt
 make shell
-
-# 3. Installer les plugins zsh
 make zsh-plugins
-
-# 4. Installer vim-plug
 make vim
-
-# 5. Installer TPM pour tmux
 make tmux
-
-# 6. Créer les liens symboliques
-make linux
+make link
 ```
+
+Ensuite : `:PlugInstall` dans vim, `prefix + I` dans tmux.
 
 ---
 
