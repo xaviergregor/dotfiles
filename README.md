@@ -39,38 +39,13 @@ cd ~/dotfiles
 
 ---
 
-## ⚡ Installation guidée
+### Tout installer d'un coup
 
 ```bash
 make install
 ```
 
-Le script détecte macOS ou Linux (Debian / Ubuntu), vérifie ce qui est déjà en place et propose la liste des étapes :
-
-```
-==> macOS 15.1 (arm64) détecté
-
-  [✓] 1. Homebrew               déjà installé
-  [ ] 2. Paquets du Brewfile    12 manquant(s)
-  [✓] 3. Oh My Zsh              déjà installé
-  [ ] 4. Plugins zsh            manquants : zsh-completions
-  [✓] 5. vim-plug               déjà installé
-  [ ] 6. TPM (tmux)             absent
-  [ ] 7. Liens symboliques      1 à créer, ~/.zshrc pointe ailleurs
-  [ ] 8. Préférences macOS      optionnel, réglages système
-
-Étapes à lancer ? [Entrée = 2 4 6 7 | a = tout | q = quitter] :
-```
-
-- **Entrée** lance ce qui manque (les préférences macOS restent optionnelles), ou tape les numéros voulus (`2 4 7`).
-- Les fichiers existants remplacés par un lien sont sauvegardés en `.bak-<date>`.
-- À la fin : installation des plugins vim et tmux, et proposition de passer le shell par défaut à zsh.
-
-| Commande | Description |
-|---|---|
-| `make install` | Liste interactive |
-| `make install YES=1` | Installe tout ce qui manque, sans question |
-| `make install DRY=1` | Affiche les commandes sans rien exécuter |
+Détecte macOS ou Linux (Debian / Ubuntu) et enchaîne les étapes ci-dessous dans l'ordre. Relançable sans risque : ce qui est déjà installé est sauté. Les préférences macOS (`make prefs-mac`) restent à lancer à part.
 
 ---
 
@@ -127,10 +102,11 @@ Plugins installés dans `~/.oh-my-zsh/custom/plugins/` :
 
 | Commande | Description |
 |---|---|
-| `make link` | Crée les liens symboliques selon l'OS détecté (`make mac` / `make linux` sont des alias) |
-| `make prefs-mac` | Applique les préférences système macOS (via `scripts/prefs_mac.sh`, à lancer **sans** sudo ; crée `scripts/local.env` en posant les questions s'il manque) |
+| `make mac` | Crée les liens symboliques pour macOS |
+| `make linux` | Crée les liens symboliques pour Linux |
+| `make prefs-mac` | Applique les préférences système macOS (via `scripts/prefs_mac.sh`, à lancer **sans** sudo) |
 
-#### Fichiers liés sur macOS
+#### Fichiers liés sur macOS (`make mac`)
 
 | Source (dépôt) | Destination |
 |---|---|
@@ -141,7 +117,7 @@ Plugins installés dans `~/.oh-my-zsh/custom/plugins/` :
 | `config/ghostty/config` | `~/.config/ghostty/config` |
 | `Brewfile` | `~/Brewfile` |
 
-#### Fichiers liés sur Linux
+#### Fichiers liés sur Linux (`make linux`)
 
 | Source (dépôt) | Destination |
 |---|---|
@@ -153,23 +129,55 @@ Plugins installés dans `~/.oh-my-zsh/custom/plugins/` :
 
 ---
 
-## 🧰 Installation manuelle
-
-`make install` enchaîne les mêmes cibles ; elles restent utilisables une par une.
+## 🍎 Installation complète macOS
 
 ```bash
-# macOS
-make brew && make brew-install
-make shell && make zsh-plugins
-make vim && make tmux
-make link
-make prefs-mac   # optionnel
+# 1. Installer Homebrew
+make brew
 
-# Linux
-make debian      # ou : make ubuntu
-make shell && make zsh-plugins
-make vim && make tmux
-make link
+# 2. Installer Oh My Zsh
+make shell
+
+# 3. Installer les plugins zsh
+make zsh-plugins
+
+# 4. Installer vim-plug
+make vim
+
+# 5. Installer TPM pour tmux
+make tmux
+
+# 6. Créer les liens symboliques
+make mac
+
+# 7. Installer les dépendances Homebrew
+make brew-install
+
+# 8. (Optionnel) Appliquer les préférences système
+#    Si scripts/local.env n'existe pas, le script demande nom / email / téléphone et le crée
+make prefs-mac
+```
+
+## 🐧 Installation complète Linux (Ubuntu)
+
+```bash
+# 1. Installer les paquets système
+make ubuntu
+
+# 2. Installer Oh My Zsh
+make shell
+
+# 3. Installer les plugins zsh
+make zsh-plugins
+
+# 4. Installer vim-plug
+make vim
+
+# 5. Installer TPM pour tmux
+make tmux
+
+# 6. Créer les liens symboliques
+make linux
 ```
 
 ---
