@@ -8,6 +8,7 @@ ZSH_THEME=""   # prompt défini plus bas, pas besoin de charger un thème
 
 plugins=(
   git
+  git-prompt   # statut git dans le prompt de droite (RPROMPT)
   grc
   sudo
   web-search
