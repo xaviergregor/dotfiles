@@ -1,31 +1,37 @@
-#!/usr/bin/env bash 
- 
-# 'Wi-Fi' ou 'Ethernet' ou 'Display Ethernet' 
-INTERFACE=Wi-Fi
- 
-# Demande des droits administrateur 
+#!/usr/bin/env bash
+# Active un proxy SOCKS système vers Tor (macOS) le temps que tor tourne.
+# Le proxy est désactivé à la sortie, quelle qu'en soit la cause.
+
+# 'Wi-Fi' ou 'Ethernet' ou 'Display Ethernet'
+INTERFACE="${1:-Wi-Fi}"
+PORT=9050
+
+# Demande des droits administrateur
 sudo -v
- 
+
 # Met à jour l'horodatage `sudo` existant jusqu'à la fin
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
- 
-# CTRL-C pour stopper
-function disable_proxy() {
-    sudo networksetup -setsocksfirewallproxystate $INTERFACE off
-    echo "$(tput setaf 64)" #green 
-    echo "SOCKS proxy disabled."
-    echo "$(tput sgr0)" # color reset 
+
+disable_proxy() {
+    sudo networksetup -setsocksfirewallproxystate "$INTERFACE" off
+    echo "$(tput setaf 64)SOCKS proxy disabled.$(tput sgr0)" # green
 }
-trap disable_proxy INT
- 
+
+# Si le port est déjà pris (ex. brew services tor), tor échouerait aussitôt
+if lsof -nP -iTCP:"$PORT" -sTCP:LISTEN >/dev/null 2>&1; then
+    echo "$(tput setaf 160)Le port $PORT est déjà utilisé (brew services stop tor ?).$(tput sgr0)" >&2
+    exit 1
+fi
+
+# Désactive le proxy à toute sortie : CTRL-C, kill, ou arrêt de tor
+trap disable_proxy EXIT
+trap 'exit 130' INT TERM
+
 # Let's go dude
-sudo networksetup -setsocksfirewallproxy $INTERFACE 127.0.0.1 9050 off
-sudo networksetup -setsocksfirewallproxystate $INTERFACE on
- 
-echo "$(tput setaf 64)" # green 
-echo "SOCKS proxy 127.0.0.1:9050 enabled."
-echo "$(tput setaf 136)" # orange 
-echo "Starting Tor..."
-echo "$(tput sgr0)" # color reset 
- 
+sudo networksetup -setsocksfirewallproxy "$INTERFACE" 127.0.0.1 "$PORT" off
+sudo networksetup -setsocksfirewallproxystate "$INTERFACE" on
+
+echo "$(tput setaf 64)SOCKS proxy 127.0.0.1:$PORT enabled ($INTERFACE).$(tput sgr0)"
+echo "$(tput setaf 136)Starting Tor... (CTRL-C pour stopper)$(tput sgr0)"
+
 tor

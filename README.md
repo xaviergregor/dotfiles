@@ -20,6 +20,7 @@ Ce dépôt contient l'ensemble de mes fichiers de configuration (dotfiles) pour 
 - 🖥️ **Tmux** — Configuration liée avec TPM (Tmux Plugin Manager)
 - 📦 **Brewfile** — Gestion déclarative des dépendances macOS via `brew bundle`
 - 🔗 **Liens symboliques** — Tous les fichiers de config sont liés depuis le dépôt vers `$HOME`
+- 🐚 **Un seul `.zshrc`** — commun macOS / Linux, les différences sont gérées via `$OSTYPE`
 
 ## 🚀 Installation rapide
 
@@ -32,7 +33,7 @@ Ce dépôt contient l'ensemble de mes fichiers de configuration (dotfiles) pour 
 ### Cloner le dépôt
 
 ```bash
-git clone https://github.com/xaviergregor/dotfiles.git
+git clone https://github.com/xaviergregor/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ```
 
@@ -47,7 +48,9 @@ cd ~/dotfiles
 | `make debian` | Installe les paquets essentiels sur Debian |
 | `make ubuntu` | Installe les paquets essentiels sur Ubuntu (+ Ghostty) |
 
-Paquets installés : `grc`, `bat`, `zsh`, `htop`, `golang`, `curl`, `vim`, `tmux`, `gcc`, `g++`, `ranger`, `fzf`, `eza`
+Paquets installés : `grc`, `bat`, `zsh`, `htop`, `golang`, `curl`, `vim`, `tmux`, `gcc`, `g++`, `ranger`, `fzf`, `ripgrep`
+
+Installés s'ils existent dans les dépôts de la version (sinon ignorés) : `eza`, et `ghostty` sur Ubuntu
 
 ---
 
@@ -91,13 +94,13 @@ Plugins installés dans `~/.oh-my-zsh/custom/plugins/` :
 |---|---|
 | `make mac` | Crée les liens symboliques pour macOS |
 | `make linux` | Crée les liens symboliques pour Linux |
-| `make prefs-mac` | Applique les préférences système macOS (via `scripts/prefs_mac.sh`) |
+| `make prefs-mac` | Applique les préférences système macOS (via `scripts/prefs_mac.sh`, à lancer **sans** sudo) |
 
 #### Fichiers liés sur macOS (`make mac`)
 
 | Source (dépôt) | Destination |
 |---|---|
-| `.zshrc_mac` | `~/.zshrc` |
+| `.zshrc` | `~/.zshrc` |
 | `.vimrc` | `~/.vimrc` |
 | `.tmux.conf` | `~/.tmux.conf` |
 | `config/htop/htoprc` | `~/.config/htop/htoprc` |
@@ -108,7 +111,7 @@ Plugins installés dans `~/.oh-my-zsh/custom/plugins/` :
 
 | Source (dépôt) | Destination |
 |---|---|
-| `.zshrc_linux` | `~/.zshrc` |
+| `.zshrc` | `~/.zshrc` |
 | `.vimrc` | `~/.vimrc` |
 | `.tmux.conf` | `~/.tmux.conf` |
 | `config/htop/htoprc` | `~/.config/htop/htoprc` |
@@ -141,6 +144,7 @@ make mac
 make brew-install
 
 # 8. (Optionnel) Appliquer les préférences système
+#    Message de la fenêtre de login : cp scripts/local.env.example scripts/local.env
 make prefs-mac
 ```
 

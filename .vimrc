@@ -31,6 +31,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ojroques/vim-oscyank'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'   " :Files, :Rg (ripgrep), :Buffers
 call plug#end()
 
 nnoremap <C-n> :NERDTreeToggle<CR>

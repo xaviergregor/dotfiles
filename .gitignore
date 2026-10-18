@@ -16,3 +16,6 @@
 *.orig
 *.bkp
 *.old
+
+# Valeurs personnelles (téléphone, email…)
+scripts/local.env
