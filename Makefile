@@ -48,10 +48,11 @@ tmux:
 	@[ -d ~/.tmux/plugins/tpm ] && echo "✓ tpm déjà installé" \
 		|| git clone --depth=1 https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-# RUNZSH=no : ne lance pas zsh à la fin ; KEEP_ZSHRC=yes : ne touche pas au ~/.zshrc
+# RUNZSH=no : ne lance pas zsh à la fin (sinon make install s'arrête là)
+# L'installeur sauvegarde le ~/.zshrc existant en ~/.zshrc.pre-oh-my-zsh
 shell:
 	@[ -d ~/.oh-my-zsh ] && echo "✓ Oh My Zsh déjà installé" \
-		|| RUNZSH=no KEEP_ZSHRC=yes sh -c "$$( $(CURL) $(OHMYZSH_INSTALL) )"
+		|| RUNZSH=no sh -c "$$( $(CURL) $(OHMYZSH_INSTALL) )"
 
 zsh-plugins:
 	@for repo in zsh-syntax-highlighting zsh-completions zsh-autosuggestions; do \
