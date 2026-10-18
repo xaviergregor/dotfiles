@@ -33,7 +33,6 @@ brew "iproute2mac"
 brew "fastfetch"
 brew "m-cli"
 brew "ripgrep"
-brew "fzf"
 brew "yazi"
 
 # Programmes

@@ -90,12 +90,6 @@ if [[ $OSTYPE == darwin* ]]; then
 fi
 
 # ---------------------
-# fzf : Ctrl-R (historique), Ctrl-T (fichiers), Alt-C (cd)
-# (fzf >= 0.48 ; ignoré silencieusement sur les versions plus anciennes)
-# ---------------------
-(( $+commands[fzf] )) && eval "$(fzf --zsh 2>/dev/null)"
-
-# ---------------------
 # eza universal Dracula
 # ---------------------
 export EZA_COLORS="\

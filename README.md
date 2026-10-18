@@ -48,7 +48,7 @@ cd ~/dotfiles
 | `make debian` | Installe les paquets essentiels sur Debian |
 | `make ubuntu` | Installe les paquets essentiels sur Ubuntu (+ Ghostty) |
 
-Paquets installés : `grc`, `bat`, `zsh`, `htop`, `golang`, `curl`, `vim`, `tmux`, `gcc`, `g++`, `ranger`, `fzf`, `ripgrep`
+Paquets installés : `grc`, `bat`, `zsh`, `htop`, `golang`, `curl`, `vim`, `tmux`, `gcc`, `g++`, `ranger`
 
 Installés s'ils existent dans les dépôts de la version (sinon ignorés) : `eza`, et `ghostty` sur Ubuntu
 

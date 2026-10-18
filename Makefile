@@ -7,7 +7,7 @@ BREW_INSTALL := https://raw.githubusercontent.com/Homebrew/install/HEAD/install.
 ZSH_CUSTOM ?= $(HOME)/.oh-my-zsh/custom
 
 # Paquets requis, puis paquets absents de certaines versions (installés un par un)
-APT_PKGS := grc bat zsh htop golang curl vim tmux gcc g++ ranger fzf ripgrep
+APT_PKGS := grc bat zsh htop golang curl vim tmux gcc g++ ranger
 APT_OPTIONAL := eza
 
 .PHONY: debian ubuntu brew vim tmux shell zsh-plugins mac linux \
