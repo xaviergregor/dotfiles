@@ -239,11 +239,17 @@ post_install() {
   if [[ $selected == *" vimplug "* || $selected == *" links "* ]] \
      && [[ -f $HOME/.vim/autoload/plug.vim && -L $HOME/.vimrc ]] && command -v vim >/dev/null; then
     info "Plugins vim"
-    # Le 1er lancement échoue forcément (colorscheme pas encore téléchargé) :
-    # on juge sur un 2e lancement, une fois les plugins installés.
-    run vim -E -s -u "$HOME/.vimrc" +PlugInstall +qall </dev/null
-    if (( DRY )) || vim -E -s -u "$HOME/.vimrc" +qall </dev/null; then ok "Plugins vim installés"
-    else warn "vim signale encore une erreur : relance :PlugInstall dans vim"; fi
+    if [[ ! -t 1 ]] || ! { : </dev/tty; } 2>/dev/null; then
+      warn "Pas de terminal : lance :PlugInstall dans vim plus tard"
+    else
+      # vim visible (pas de mode silencieux qui bloquerait sans rien afficher) ;
+      # --sync attend la fin de l'installation avant de quitter.
+      # Le message d'erreur sur 'dracula' au 1er lancement est normal.
+      printf "   %s(vim s'ouvre le temps de l'installation ; s'il reste bloqué : :qa!)%s\n" "$D" "$N"
+      run vim -u "$HOME/.vimrc" -i NONE -c 'PlugInstall --sync' -c 'qa!' </dev/tty >/dev/tty
+      if (( DRY )) || [[ -d $HOME/.vim/plugged/dracula ]]; then ok "Plugins vim installés"
+      else warn "Plugins vim incomplets : relance :PlugInstall dans vim"; fi
+    fi
   fi
 
   if [[ $selected == *" tpm "* || $selected == *" links "* ]] \
