@@ -144,7 +144,7 @@ make mac
 make brew-install
 
 # 8. (Optionnel) Appliquer les préférences système
-#    Message de la fenêtre de login : cp scripts/local.env.example scripts/local.env
+#    Si scripts/local.env n'existe pas, le script demande nom / email / téléphone et le crée
 make prefs-mac
 ```
 

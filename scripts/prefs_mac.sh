@@ -10,6 +10,28 @@ fi
 
 # Valeurs personnelles (non versionnées) : scripts/local.env
 ENV_FILE="$(cd "$(dirname "$0")" && pwd)/local.env"
+
+# Absent : on demande les valeurs et on crée le fichier (si terminal interactif)
+if [[ ! -f $ENV_FILE && -t 0 ]]; then
+  echo "scripts/local.env introuvable : création (Entrée sur une ligne vide pour ignorer)."
+  read -rp "  Nom affiché      : " name
+  read -rp "  Email            : " email
+  read -rp "  Téléphone        : " phone
+
+  # Assemble "Nom -- email -- tel" en ignorant les champs vides
+  parts=()
+  for v in "$name" "$email" "$phone"; do [[ -n $v ]] && parts+=("$v"); done
+  msg=""
+  for v in "${parts[@]}"; do msg+="${msg:+ -- }$v"; done
+
+  {
+    echo "# Valeurs personnelles, non versionnées (voir .gitignore)"
+    printf "LOGIN_MESSAGE='%s'\n" "${msg//\'/\'\\\'\'}"   # guillemets simples, ' échappés
+  } >"$ENV_FILE"
+  chmod 600 "$ENV_FILE"
+  echo "  → $ENV_FILE créé${msg:+ : $msg}"
+fi
+
 # shellcheck source=/dev/null
 [[ -f $ENV_FILE ]] && source "$ENV_FILE"
 
