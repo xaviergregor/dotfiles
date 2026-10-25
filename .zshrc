@@ -114,12 +114,12 @@ xx=95:"
 
 #FZF
 export FZF_CTRL_R_OPTS="
-  --height 40% --layout=reverse --border=rounded --info=inline-right
   --preview 'echo {}' --preview-window up:3:hidden:wrap
   --bind '?:toggle-preview'
   --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
   --border-label=' historique '"
 export FZF_DEFAULT_OPTS="
+  --height 40% --layout=reverse --border=rounded --info=inline-right
   --color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 
   --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 
   --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 
