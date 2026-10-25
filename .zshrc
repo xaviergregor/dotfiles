@@ -10,6 +10,7 @@ plugins=(
   git
   git-prompt   # statut git dans le prompt de droite (RPROMPT)
   grc
+  fzf
   sudo
   web-search
   colored-man-pages
@@ -110,3 +111,6 @@ tr=34:\
 tw=35:\
 tx=36:\
 xx=95:"
+
+#FZF
+source <(fzf --zsh)

@@ -5,7 +5,7 @@ ZSH_CUSTOM := $(HOME)/.oh-my-zsh/custom
 
 apt:
 	sudo apt update
-	sudo apt install -y grc bat zsh htop golang curl vim tmux gcc g++ ranger
+	sudo apt install -y grc bat zsh htop golang curl vim tmux gcc g++ ranger fzf
 	-sudo apt install -y eza       # absent de Debian 12
 	-sudo apt install -y ghostty   # absent de certains dépôts
 
