@@ -67,9 +67,9 @@ fi
 
 # bat s'appelle batcat sur Debian/Ubuntu
 if (( $+commands[bat] )); then
-  alias cat='bat --theme ansi -pp'
+  alias cat='bat --theme Dracula -pp'
 elif (( $+commands[batcat] )); then
-  alias cat='batcat --theme ansi -pp'
+  alias cat='batcat --theme Dracula -pp'
 fi
 
 alias c='clear'
@@ -113,6 +113,15 @@ tx=36:\
 xx=95:"
 
 #FZF
-export FZF_CTRL_R_OPTS="--height 40% --layout=reverse"
-export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
+export FZF_CTRL_R_OPTS="
+  --height 40% --layout=reverse --border=rounded --info=inline-right
+  --preview 'echo {}' --preview-window up:3:hidden:wrap
+  --bind '?:toggle-preview'
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --border-label=' historique '"
+export FZF_DEFAULT_OPTS="
+  --color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 
+  --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 
+  --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 
+  --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4"
 source <(fzf --zsh)
