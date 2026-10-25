@@ -88,6 +88,8 @@ if [[ $OSTYPE == darwin* ]]; then
   [[ -x /opt/homebrew/bin/geoip.bash ]] && alias geoip='/opt/homebrew/bin/geoip.bash'
   alias scl='cd $HOME/SynologyDrive/Clients'
   alias scl.='open $HOME/SynologyDrive/Clients'
+  alias scs='cd $HOME/SynologyDrive/Scripts'
+  alias scs.='open $HOME/SynologyDrive/Scripts'
   alias hd='http --download'
 fi
 
