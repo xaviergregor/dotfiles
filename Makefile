@@ -7,7 +7,7 @@ apt:
 	sudo apt update
 	sudo apt install -y grc bat zsh htop golang curl vim tmux gcc g++ ranger fzf
 	-sudo apt install -y eza       # absent de Debian 12
-	-sudo apt install -y ghostty   # absent de certains dépôts
+	-. /etc/os-release && [ "$$ID" = ubuntu ] && sudo apt install -y ghostty   # Ubuntu uniquement
 
 brew:
 	command -v brew || bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

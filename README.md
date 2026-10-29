@@ -45,7 +45,7 @@ cd ~/dotfiles
 
 | Commande | Description |
 |---|---|
-| `make apt` | Paquets système Debian / Ubuntu : `grc`, `bat`, `zsh`, `htop`, `golang`, `curl`, `vim`, `tmux`, `gcc`, `g++`, `ranger` (+ `eza` et `ghostty` s'ils existent dans les dépôts) |
+| `make apt` | Paquets système Debian / Ubuntu : `grc`, `bat`, `zsh`, `htop`, `golang`, `curl`, `vim`, `tmux`, `gcc`, `g++`, `ranger` (+ `eza` s'il existe dans les dépôts, `ghostty` sous Ubuntu uniquement) |
 | `make brew` | Installe Homebrew (macOS) |
 | `make brew-install` | Installe les paquets du `Brewfile` (macOS) |
 | `make shell` | Installe Oh My Zsh |
