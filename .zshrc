@@ -73,6 +73,7 @@ elif (( $+commands[batcat] )); then
 fi
 
 alias c='clear'
+alias cht='cht.sh'
 alias grep='grep --color=auto'
 alias dot='cd $HOME/dotfiles'
 alias ff='fastfetch'
