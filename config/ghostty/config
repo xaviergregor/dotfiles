@@ -28,8 +28,8 @@ font-size = 11
 
 macos-titlebar-style = tabs
 macos-option-as-alt = left
-background-opacity = 0.90
-background-blur-radius = 75
+#background-opacity = 0.90
+#background-blur-radius = 75
 copy-on-select = clipboard
 quit-after-last-window-closed = false
 mouse-hide-while-typing = true
