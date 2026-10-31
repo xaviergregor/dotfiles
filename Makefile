@@ -1,13 +1,17 @@
 DOTFILES := $(CURDIR)
 ZSH_CUSTOM := $(HOME)/.oh-my-zsh/custom
 
-.PHONY: apt brew brew-install shell zsh-plugins vim tmux link prefs-mac
+.PHONY: apt dnf brew brew-install shell zsh-plugins vim tmux link prefs-mac
 
 apt:
 	sudo apt update
 	sudo apt install -y grc bat zsh htop golang curl vim tmux gcc g++ ranger fzf
 	-sudo apt install -y eza       # absent de Debian 12
 	-. /etc/os-release && [ "$$ID" = ubuntu ] && sudo apt install -y ghostty   # Ubuntu uniquement
+
+dnf:
+	sudo dnf install -y grc bat zsh htop golang curl vim-enhanced tmux gcc gcc-c++ ranger fzf eza
+	-sudo dnf copr enable -y scottames/ghostty && sudo dnf install -y ghostty   # dépôt COPR non officiel
 
 brew:
 	command -v brew || bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
