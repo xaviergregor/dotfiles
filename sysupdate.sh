@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # sysupdate.sh — Mises à jour courantes et montées de version majeures
 # Ubuntu (do-release-upgrade), Debian (bascule des sources APT), Fedora (dnf system-upgrade)
+#
 # Usage : sudo ./sysupdate.sh            menu interactif
 #         sudo ./sysupdate.sh -u         mises à jour courantes
 #         sudo ./sysupdate.sh -u -y      mises à jour courantes sans question (cron)
@@ -85,15 +86,20 @@ sim() { apt-get -s "$@" 2>/dev/null; }
 # ---------- dnf (Fedora) ----------
 is_fedora() { [[ $OS_ID == fedora ]]; }
 dnf_cmd()   { run_logged dnf -y "$@"; }
-# check-update renvoie 100 s'il y a des mises à jour : on neutralise le code retour
-dnf_updates() { { dnf -q check-update --refresh 2>/dev/null || true; } | awk 'NF==3 && $1 ~ /\./'; }
+# check-update : 0 = rien, 100 = mises à jour dispo, autre = erreur (réseau, dépôt…)
+dnf_updates() {
+  local out rc=0
+  out=$(trap - ERR; dnf -q check-update --refresh 2>/dev/null) || rc=$?   # pas de trap ERR sur le code 100
+  (( rc == 0 || rc == 100 )) || warn "dnf check-update a échoué (code $rc) : réseau ou dépôts ?" >&2
+  awk 'NF==3 && $1 ~ /\./' <<<"$out"
+}
 
 pending_count() {
   if is_fedora; then dnf_updates | wc -l
   else sim full-upgrade | grep -c '^Inst ' || true; fi
 }
 security_count() {
-  if is_fedora; then { dnf -q updateinfo list --security 2>/dev/null || true; } | awk '$2 ~ /^security/' | wc -l
+  if is_fedora; then { dnf -q updateinfo list --security 2>/dev/null || true; } | awk '$1 ~ /^FEDORA-/' | wc -l
   else sim full-upgrade | grep '^Inst ' | grep -ci security || true; fi
 }
 
