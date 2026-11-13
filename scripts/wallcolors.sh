@@ -15,6 +15,7 @@ declare -A COULEURS=(
     ["vert"]="#1E3A2F"
     ["violet"]="#6C3483"
     ["orange"]="#E67E22"
+    ["dracula"]="#282a36"
 )
 
 # Affichage du menu
