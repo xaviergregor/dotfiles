@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # sysupdate.sh — Mises à jour courantes et montées de version majeures
-# Ubuntu (do-release-upgrade) et Debian (bascule des sources APT)
+# Ubuntu (do-release-upgrade), Debian (bascule des sources APT) et Fedora (dnf system-upgrade)
 #
 # Usage : sudo ./sysupdate.sh            menu interactif
 #         sudo ./sysupdate.sh -u         mises à jour courantes
@@ -81,8 +81,53 @@ $LOG {
 }
 EOF
 }
-sim()           { apt-get -s "$@" 2>/dev/null; }
-pending_count() { sim full-upgrade | grep -c '^Inst ' || true; }
+sim() { apt-get -s "$@" 2>/dev/null; }
+
+# ---------- dnf ----------
+# On pose toujours la question nous-mêmes avant : dnf tourne donc en -y.
+dnf_cmd() { run_logged dnf -y "$@"; }
+
+# Liste des paquets à mettre à jour (check-update renvoie 100 s'il y en a)
+dnf_pending() {
+  local out
+  out=$(dnf -q check-update 2>/dev/null) || true
+  awk '/^[^ ]/ && NF==3 && $1 ~ /\./ {print $1}' <<<"$out"
+}
+
+# ---------- abstraction gestionnaire de paquets ----------
+is_apt() { [[ $PKG == apt ]]; }
+
+pending_count() {
+  if is_apt; then sim full-upgrade | grep -c '^Inst ' || true
+  else dnf_pending | grep -c . || true
+  fi
+}
+
+security_count() {
+  if is_apt; then sim full-upgrade | grep '^Inst ' | grep -ci security || true
+  else dnf -q updateinfo list --security 2>/dev/null | grep -ci 'sec' || true
+  fi
+}
+
+pkg_refresh() {
+  if is_apt; then apt_get update; else dnf_cmd makecache --refresh; fi
+}
+
+pkg_upgrade_all() {
+  if is_apt; then apt_get full-upgrade; else dnf_cmd upgrade; fi
+}
+
+# 0 si un redémarrage est requis par les paquets mis à jour
+reboot_needed() {
+  if is_apt; then
+    [[ -f /var/run/reboot-required ]]
+  else
+    dnf needs-restarting --help >/dev/null 2>&1 || return 1
+    local rc=0
+    dnf -q needs-restarting -r >/dev/null 2>&1 || rc=$?
+    (( rc == 1 ))
+  fi
+}
 
 # ---------- contexte ----------
 need_root() { [[ $EUID -eq 0 ]] || die "À lancer en root (sudo)."; }
@@ -91,7 +136,15 @@ detect_os() {
   # shellcheck disable=SC1091
   . /etc/os-release
   OS_ID=$ID OS_NAME=$PRETTY_NAME CODENAME=${VERSION_CODENAME:-}
-  case $OS_ID in ubuntu|debian) ;; *) die "Distribution non supportée : $OS_ID" ;; esac
+  case $OS_ID in
+    ubuntu|debian) PKG=apt ;;
+    fedora)
+      [[ -e /run/ostree-booted ]] && die "Fedora Atomic (Silverblue, CoreOS…) : utilise rpm-ostree, pas ce script."
+      PKG=dnf; CODENAME=${VERSION_ID:-}
+      command -v dnf >/dev/null || die "dnf introuvable."
+      ;;
+    *) die "Distribution non supportée : $OS_ID" ;;
+  esac
 }
 
 in_multiplexer() { [[ -n ${TMUX:-} || ${TERM:-} == screen* ]]; }
@@ -104,14 +157,23 @@ preflight() {
   (( free >= need )) || { warn "Seulement ${free} Mo libres sur / (recommandé : ${need})."; ask "Continuer quand même" n || exit 1; }
   if mountpoint -q /boot; then
     free=$(free_mb /boot)
-    (( free >= MIN_FREE_BOOT )) || warn "/boot presque plein (${free} Mo). Pense à 'apt autoremove --purge'."
+    if (( free < MIN_FREE_BOOT )); then
+      if is_apt; then warn "/boot presque plein (${free} Mo). Pense à 'apt autoremove --purge'."
+      else warn "/boot presque plein (${free} Mo). Pense à 'dnf remove --oldinstallonly'."
+      fi
+    fi
   fi
-  if [[ -n $(dpkg --audit 2>/dev/null) ]]; then
-    warn "dpkg signale des paquets mal configurés."
-    ask "Lancer 'dpkg --configure -a'" o && dpkg --configure -a
+  local held
+  if is_apt; then
+    if [[ -n $(dpkg --audit 2>/dev/null) ]]; then
+      warn "dpkg signale des paquets mal configurés."
+      ask "Lancer 'dpkg --configure -a'" o && dpkg --configure -a
+    fi
+    held=$(apt-mark showhold)
+  else
+    held=$(dnf -q versionlock list 2>/dev/null || true)
   fi
-  local held; held=$(apt-mark showhold)
-  [[ -z $held ]] || warn "Paquets bloqués (hold) : $(echo "$held" | tr '\n' ' ')"
+  [[ -z $held ]] || warn "Paquets bloqués (hold/versionlock) : $(echo "$held" | tr '\n' ' ')"
 }
 
 backup_etc() {
@@ -119,16 +181,23 @@ backup_etc() {
   mkdir -p "$BACKUP_DIR"
   local ts; ts=$(date +%F-%H%M%S)
   tar czf "$BACKUP_DIR/etc-$ts.tar.gz" -C / etc 2>/dev/null || warn "tar a signalé des avertissements"
-  dpkg --get-selections >"$BACKUP_DIR/selections-$ts.txt"
-  apt-mark showmanual >"$BACKUP_DIR/manual-$ts.txt"
+  if is_apt; then
+    dpkg --get-selections >"$BACKUP_DIR/selections-$ts.txt"
+    apt-mark showmanual >"$BACKUP_DIR/manual-$ts.txt"
+  else
+    rpm -qa | sort >"$BACKUP_DIR/selections-$ts.txt"
+    dnf -q repoquery --userinstalled >"$BACKUP_DIR/manual-$ts.txt" 2>/dev/null || true
+  fi
   ok "Sauvegarde : $BACKUP_DIR/*-$ts.*"
 }
 
 reboot_check() {
   local need=0 newest
-  if [[ -f /var/run/reboot-required ]]; then
+  if reboot_needed; then
     need=1
-    [[ -f /var/run/reboot-required.pkgs ]] && info "Requis par : $(sort -u /var/run/reboot-required.pkgs | tr '\n' ' ')"
+    if [[ -f /var/run/reboot-required.pkgs ]]; then
+      info "Requis par : $(sort -u /var/run/reboot-required.pkgs | tr '\n' ' ')"
+    fi
   fi
   newest=$(find /boot -maxdepth 1 -name 'vmlinuz-*' -printf '%f\n' 2>/dev/null | sed 's/^vmlinuz-//' | sort -V | tail -1)
   if [[ -n $newest && $newest != "$(uname -r)" ]]; then
@@ -146,6 +215,40 @@ reboot_check() {
 # ---------- mises à jour courantes ----------
 routine_update() {
   preflight "$MIN_FREE_ROUTINE"
+  if is_apt; then apt_routine; else dnf_routine; fi
+
+  if command -v snap >/dev/null && snap list >/dev/null 2>&1; then
+    ask "Rafraîchir les snaps" o && run_logged snap refresh
+  fi
+  if command -v flatpak >/dev/null; then
+    ask "Mettre à jour les flatpaks" o && run_logged flatpak update -y
+  fi
+  reboot_check
+}
+
+dnf_routine() {
+  info "Rafraîchissement des métadonnées DNF"
+  dnf_cmd makecache --refresh
+
+  local list n sec
+  list=$(dnf_pending)
+  n=$(grep -c . <<<"$list" || true)
+  if (( n == 0 )); then
+    ok "Paquets DNF à jour."
+  else
+    sec=$(security_count)
+    info "$n paquet(s) à mettre à jour, dont $sec de sécurité :"
+    printf '%s\n' "$list" >>"$LOG" 2>/dev/null || true
+    column -c "$(tput cols 2>/dev/null || echo 100)" <<<"$list" 2>/dev/null || echo "$list"
+    ask "Appliquer les $n mise(s) à jour" o && dnf_cmd upgrade
+  fi
+
+  ask "Supprimer les paquets orphelins (dnf autoremove)" o && dnf_cmd autoremove
+  dnf_cmd clean packages >/dev/null
+  return 0
+}
+
+apt_routine() {
   info "Rafraîchissement des index APT"
   apt_get update
 
@@ -178,14 +281,7 @@ routine_update() {
     apt_get autoremove --purge
   fi
   apt_get autoclean >/dev/null
-
-  if command -v snap >/dev/null && snap list >/dev/null 2>&1; then
-    ask "Rafraîchir les snaps" o && run_logged snap refresh
-  fi
-  if command -v flatpak >/dev/null; then
-    ask "Mettre à jour les flatpaks" o && run_logged flatpak update -y
-  fi
-  reboot_check
+  return 0
 }
 
 # ---------- montée de version : commun ----------
@@ -200,13 +296,13 @@ major_prereqs() {
   preflight "$MIN_FREE_MAJOR"
 
   info "Mise à niveau de la version actuelle d'abord"
-  apt_get update
+  pkg_refresh
   if (( $(pending_count) > 0 )); then
     warn "Des mises à jour sont en attente sur $OS_NAME."
     ask "Les appliquer maintenant (obligatoire)" o || die "Abandon : système pas à jour."
-    apt_get full-upgrade
+    pkg_upgrade_all
   fi
-  if [[ -f /var/run/reboot-required ]]; then
+  if reboot_needed; then
     warn "Redémarrage requis avant la montée de version. Relance le script après."
     ask "Redémarrer maintenant" o && { systemctl reboot; exit 0; }
     die "Abandon : redémarrage requis."
@@ -334,24 +430,74 @@ debian_major() {
   return 0
 }
 
+# ---------- Fedora ----------
+fedora_major() {
+  [[ $CODENAME =~ ^[0-9]+$ ]] || die "Version Fedora non numérique : '$CODENAME' (Rawhide ?)."
+  local next=$((CODENAME + 1))
+  info "Montée de version : Fedora $CODENAME → $next"
+
+  if command -v curl >/dev/null; then
+    if ! curl -fsSI --max-time 10 "https://dl.fedoraproject.org/pub/fedora/linux/releases/$next/" >/dev/null 2>&1; then
+      warn "Fedora $next ne semble pas encore publiée (branched / bêta)."
+      ask "Continuer quand même (déconseillé sur un serveur)" n || return 0
+    fi
+  fi
+
+  major_prereqs
+
+  # dnf5 (Fedora 41+) intègre system-upgrade ; dnf4 a besoin du plugin
+  if ! dnf system-upgrade --help >/dev/null 2>&1; then
+    info "Installation du plugin system-upgrade"
+    dnf_cmd install dnf-plugin-system-upgrade
+  fi
+
+  backup_etc
+
+  ask "Télécharger les paquets de Fedora $next" n || return 0
+  log "Fedora system-upgrade $CODENAME -> $next"
+  if ! dnf_cmd system-upgrade download --releasever="$next"; then
+    warn "Le téléchargement a échoué (conflits de dépendances, dépôt tiers pas encore prêt…)."
+    ask "Réessayer avec --allowerasing (autorise la suppression de paquets bloquants)" n \
+      || die "Abandon. Nettoyage : dnf system-upgrade clean"
+    dnf_cmd system-upgrade download --releasever="$next" --allowerasing
+  fi
+  ok "Paquets de Fedora $next téléchargés."
+
+  warn "Le redémarrage applique la mise à niveau hors ligne : plusieurs minutes sans SSH."
+  if ask "Redémarrer et lancer la mise à niveau maintenant" o; then
+    log "dnf system-upgrade reboot"
+    dnf system-upgrade reboot
+    exit 0
+  fi
+  info "Plus tard : sudo dnf system-upgrade reboot"
+  info "Après la mise à niveau : 'rpmconf -a' pour les fichiers de conf, 'dnf system-upgrade clean'."
+  return 0
+}
+
 # ---------- état ----------
 status() {
   info "Rafraîchissement des index"
-  apt-get -qq "${APT_BASE[@]}" update || warn "apt update a échoué"
+  if is_apt; then
+    apt-get -qq "${APT_BASE[@]}" update || warn "apt update a échoué"
+  else
+    dnf -q makecache >/dev/null 2>&1 || warn "dnf makecache a échoué"
+  fi
   local n sec
   n=$(pending_count)
-  sec=$(sim full-upgrade | grep '^Inst ' | grep -ci security || true)
+  sec=$(security_count)
   printf '\n%sSystème%s     %s (%s)\n' "$W" "$N" "$OS_NAME" "$CODENAME"
   printf '%sNoyau%s       %s\n' "$W" "$N" "$(uname -r)"
   printf '%sUptime%s      %s\n' "$W" "$N" "$(uptime -p)"
   printf '%sEn attente%s  %s paquet(s), dont %s sécurité\n' "$W" "$N" "$n" "$sec"
   printf '%sDisque /%s    %s Mo libres\n' "$W" "$N" "$(free_mb /)"
-  [[ -f /var/run/reboot-required ]] && printf '%sReboot%s      %srequis%s\n' "$W" "$N" "$Y" "$N"
+  if reboot_needed; then printf '%sReboot%s      %srequis%s\n' "$W" "$N" "$Y" "$N"; fi
   if [[ $OS_ID == ubuntu ]] && command -v do-release-upgrade >/dev/null; then
     printf '%sNouvelle version%s ' "$W" "$N"
     do-release-upgrade -c 2>/dev/null | grep -i 'new release' || echo "aucune proposée"
   elif [[ $OS_ID == debian ]]; then
     printf '%sVersion suivante%s %s\n' "$W" "$N" "${DEB_NEXT[$CODENAME]:-inconnue}"
+  elif [[ $OS_ID == fedora && $CODENAME =~ ^[0-9]+$ ]]; then
+    printf '%sVersion suivante%s Fedora %s\n' "$W" "$N" "$((CODENAME + 1))"
   fi
   echo
 }
@@ -360,6 +506,7 @@ major_upgrade() {
   case $OS_ID in
     ubuntu) ubuntu_major ;;
     debian) debian_major ;;
+    fedora) fedora_major ;;
   esac
 }
 
